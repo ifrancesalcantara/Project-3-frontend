@@ -13,7 +13,7 @@ class Home extends React.Component {
     const { user, logout } = this.props;
     return (
       <div>
-        <Navbar />
+        <Navbar {...this.props}/>
         {user ? <ProfileDisplay user={user._id} logout={logout} /> : null}
       </div>
     );

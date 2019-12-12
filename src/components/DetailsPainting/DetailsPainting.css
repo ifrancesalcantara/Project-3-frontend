@@ -3,6 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+}
+
+.details-img-div {
+    width: 80vw;
 }
 
 .details-div img {
@@ -14,6 +19,9 @@
   max-width: 50vw;
   overflow-wrap: break-word;
   text-align: center;
+}
+
+.title {
 }
 
 .tag {

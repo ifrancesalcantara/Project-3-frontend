@@ -32,7 +32,7 @@ class Home extends React.Component {
     const { isLoggedIn } = this.props;
     return (
       <div>
-        <Navbar />
+        <Navbar view="home"/>
 
         {!this.state.paintings ? null : (
           <PaintingList paintings={this.state.paintings} />

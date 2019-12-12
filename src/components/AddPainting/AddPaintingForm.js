@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddPaintingForm.css"
 
 export default class AddPaintingForm extends Component {
   constructor(props) {
@@ -13,6 +14,9 @@ export default class AddPaintingForm extends Component {
 
   render() {
     return (
+        <div className="add-painting-form">
+            <h1>Add a new painting</h1>
+            <p id="error-message" className="hidden">Error mesage</p>
       <form onSubmit={this.props.handleSubmit} className="add-form">
         <input
           className="add-input"
@@ -20,6 +24,7 @@ export default class AddPaintingForm extends Component {
           type="text"
           name="title"
           placeholder="title"
+          required
         />
 
         <textarea
@@ -35,6 +40,7 @@ export default class AddPaintingForm extends Component {
           type="file"
           name="image"
           onChange={e => this.props.fileChange(e)}
+          required
         />
 
         <input
@@ -45,14 +51,21 @@ export default class AddPaintingForm extends Component {
           placeholder="tags"
         />
 
-        <select size="1" className="browser-default  custom-select-lg mb-3">
-          <option>Not Started</option>
-          <option>In Progess</option>
-          <option>Completed</option>
+        <select
+        id="select"
+          size="1"
+          name="game"
+          onChange={this.props.handleSelectChange}
+          className="browser-default  custom-select-lg mb-3"
+        >
+          <option>Warhammer 40k</option>
+          <option>Warhammer Fantasy</option>
+          <option>Legends of the Old West</option>
         </select>
 
         <button>Submit</button>
       </form>
+      </div> 
     );
   }
 }

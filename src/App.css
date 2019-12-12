@@ -1,19 +1,9 @@
 .App {
   text-align: center;
-  color: white;
+  color: black;
+  position: relative;
 }
 
 select {
   overflow: auto
-}
-
-.add-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 15vh
-}
-
-.add-input {
-  margin: 2vh 0
 }

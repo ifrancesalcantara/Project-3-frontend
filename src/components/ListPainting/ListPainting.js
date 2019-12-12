@@ -21,11 +21,12 @@ export default class PaintingList extends Component {
             <div key={shortid.generate()} className="painting-list-item">
               <Link to={`/painting/${painting._id}`}>
                 <img src={painting.image} alt="" className="" />
-              </Link>
+                </Link>
 
               <div className="img-info">
-                <p>{painting.title}</p>
-                <p>1</p>
+              <Link to={`/painting/${painting._id}`}>
+                <p className="list-title">{painting.title}</p>
+              </Link>
                 {/* <Link to={`/chat/${painting.creator}`}>
                           <img src={this.state.userProfilePics[painting.creatorUsername]} alt=""/> 
                           <p>{painting.creatorUsername}</p>

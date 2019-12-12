@@ -12,8 +12,8 @@ class Painting extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <PaintingDetails paintingId={this.props.match.params.paintingId} />
+        <Navbar  {...this.props}/>
+        <PaintingDetails {...this.props} paintingId={this.props.match.params.paintingId} />
       </div>
     );
   }

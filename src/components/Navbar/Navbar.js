@@ -16,32 +16,45 @@ class Navbar extends React.Component {
       <div className="navbar">
         {isLoggedIn ? (
           <ul>
-            <span className="empy-hr" />
+            {this.props.view === "home" ? (
+              <li></li>
+            ) : (
+              <li>
+                <img
+                  onClick={() => this.props.history.goBack()}
+                  src="https://img.icons8.com/metro/52/000000/back.png"
+                  alt=""
+                />
+              </li>
+            )}
+            <li style={{ listStyleType: "none" }}>
+              <Link to="/">Maquetepinto</Link>
+            </li>
+            {/* <span className="vertical-hr" /> */}
 
             <li style={{ listStyleType: "none" }}>
-              <Link to="/">Home</Link>
-            </li>
-            <span className="vertical-hr" />
-
-            <li style={{ listStyleType: "none" }}>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <span className="vertical-hr" />
-
-            <li>
-              <img src={user.image} alt="" />
+              <Link to="/profile">
+                <img src={user.image} alt="" />
+              </Link>
             </li>
           </ul>
         ) : (
           <ul>
-            <span className="empy-hr" />
+            {this.props.view === "home" ? (
+              <li></li>
+            ) : (
+              <li>
+                <img
+                  onClick={() => this.props.history.goBack()}
+                  src="https://img.icons8.com/metro/52/000000/back.png"
+                  alt=""
+                />
+              </li>
+            )}
+            <span className="empty-hr" />
 
             <li style={{ listStyleType: "none" }}>
-              <Link to="/">Home</Link>
-            </li>
-            <span className="vertical-hr" />
-            <li style={{ listStyleType: "none" }}>
-              <Link to="/profile">Profile</Link>
+              <Link to="/">Maquetepinto</Link>
             </li>
             <span className="vertical-hr" />
             <li style={{ listStyleType: "none" }}>

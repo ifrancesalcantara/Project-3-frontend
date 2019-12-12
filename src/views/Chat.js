@@ -4,7 +4,7 @@ import { withAuth } from "../lib/AuthProvider";
 import chatService from "../lib/services/chat-service";
 
 import Navbar from "../components/Navbar/Navbar";
-import ChatMain from "../components/chat/ChatMain";
+import ChatMain from "../components/chat/ChatMain/ChatMain";
 import ChatForm from "../components/chat/ChatForm";
 
 class Chat extends Component {
@@ -33,7 +33,7 @@ class Chat extends Component {
     console.log("PROPS: ", this.props);
     return (
       <div>
-        <Navbar />
+        <Navbar {...this.props}/>
         <ChatMain chat={this.state.chatData}></ChatMain>
 
         {this.props.user ? (
