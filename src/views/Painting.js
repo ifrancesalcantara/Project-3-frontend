@@ -1,20 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import Navbar from "../components/Navbar"
-import PaintingDetails from "../components/PaintingDetails"
+import Navbar from "../components/Navbar/Navbar";
+import PaintingDetails from "../components/DetailsPainting/DetailsPainting";
+import { withAuth } from "../lib/AuthProvider";
 
-
-export default class Painting extends Component {
-    constructor(props) {
-        super(props)
-        this.state={}
-    }
-    render() {
-        return (
-            <div>
-                <Navbar />
-                <PaintingDetails paintingId={this.props.match.params.paintingId}/>
-            </div>
-        )
-    }
+class Painting extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <PaintingDetails paintingId={this.props.match.params.paintingId} />
+      </div>
+    );
+  }
 }
+
+export default withAuth(Painting);

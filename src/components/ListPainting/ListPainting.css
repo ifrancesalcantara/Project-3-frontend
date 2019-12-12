@@ -1,0 +1,31 @@
+.painting-list-div {
+  background-color: #ccc0;
+  column-count: 2;
+  column-gap: 2em;
+  margin: 4vw;
+}
+
+.painting-list-item {
+  display: inline-block;
+  text-align: center;
+  height: auto;
+  border-radius: 12% 12% 12% 12%;
+  overflow: hidden;
+  width: 100%;
+  margin: 1vh 0;
+}
+
+.painting-list-item > * > img {
+  width: 100%;
+}
+
+.painting-list-item p {
+  margin-bottom: 0;
+}
+
+.img-info {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

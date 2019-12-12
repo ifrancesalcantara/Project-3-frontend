@@ -1,0 +1,44 @@
+.navbar {
+  width: 100vw;
+  background-color: red;
+  padding: 0 !important; /* !!! */
+}
+
+.navbar ul {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: 10vh;
+  margin-bottom: 0;
+}
+
+.navbar li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.navbar button {
+  height: 100%;
+}
+
+.navbar a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vertical-hr {
+  border-right: 1px solid grey;
+}
+
+.navbar img {
+  border-radius: 50%;
+  height: 6vh;
+  text-align: center;
+}

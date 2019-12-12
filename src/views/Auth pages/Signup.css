@@ -1,0 +1,36 @@
+.signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup h1 {
+    margin: 6vh 0 0 0;
+}
+
+.signup img {
+    width: 30vw;
+    height: 30vw;
+    border: 1vw solid black;
+    border-radius: 50%;
+    margin: 4vh 0;
+    background-color: white;
+}
+
+.signup form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup form input {
+    margin: 2vh
+}
+
+.signup-btn {
+    background-color: yellow;
+}
+
+.file-input {
+    width: 50vw
+}

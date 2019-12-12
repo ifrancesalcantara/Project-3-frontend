@@ -1,20 +1,23 @@
-import React from 'react'
+import React from "react";
 
-import Navbar from "../components/Navbar"
-import ProfileDisplay from "../components/ProfileDisplay"
+import Navbar from "../components/Navbar/Navbar";
+import ProfileDisplay from "../components/ProfileDisplay/ProfileDisplay";
+import { withAuth } from "../lib/AuthProvider";
 
-export default class Home extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state={}
-    }
-    render(){
-        return (
-            <div>
-                <Navbar/>
-                {/* !!! */}
-                <ProfileDisplay userId="5deb63889997fe333e0be6d0"/>
-            </div>
-        )
-    }
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    const { user, logout } = this.props;
+    return (
+      <div>
+        <Navbar />
+        {user ? <ProfileDisplay user={user._id} logout={logout} /> : null}
+      </div>
+    );
+  }
 }
+
+export default withAuth(Home);

@@ -1,13 +1,17 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import './App.css';
+import "./App.css";
 
-import Home from "../src/views/Home"
-import Profile from "../src/views/Profile"
-import Painting from "./views/Painting.js"
-import Paintings from "./views/Paintings.js"
-import PaintingsAdd from "../src/views/PaintingsAdd"
-// import Chat from "../src/views/Chat"
+import Home from "./views/Home/Home";
+import Login from "./views/Auth pages/Login";
+import Signup from "./views/Auth pages/Signup";
+import Profile from "../src/views/Profile";
+import Painting from "./views/Painting.js";
+import PaintingsAdd from "./views/AddPaintings";
+import Chat from "./views/Chat";
+
+import AnonRoute from "./components/a_Route Components/AnonRoute";
+// import PrivateRoute from './components/a_Route Components/PrivateRoute';
 
 function App() {
   return (
@@ -15,11 +19,16 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home}></Route>
+          <AnonRoute exact path="/login" component={Login}></AnonRoute>
+          <AnonRoute exact path="/signup" component={Signup}></AnonRoute>
           <Route exact path="/profile" component={Profile}></Route>
-          <Route exact path="/painting/:paintingId" component={Painting}></Route>
-          <Route exact path="/paintings" component={Paintings}></Route>
+          <Route
+            exact
+            path="/painting/:paintingId"
+            component={Painting}
+          ></Route>
           <Route exact path="/paintings/add" component={PaintingsAdd}></Route>
-          {/* <Route exact path="/chat" component={Chat}></Route> */}
+          <Route exact path="/chat/:creatorId/:userId" component={Chat}></Route>
         </Switch>
       </BrowserRouter>
     </div>
