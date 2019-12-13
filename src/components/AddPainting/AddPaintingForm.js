@@ -35,13 +35,22 @@ export default class AddPaintingForm extends Component {
           placeholder="description"
         />
 
-        <input
+        {/* <input
           className="add-input"
           type="file"
           name="image"
           onChange={e => this.props.fileChange(e)}
           required
-        />
+        /> */}
+        <input type="file" 
+            name="image"
+            onChange={e => this.props.fileChange(e)}
+            id="file" 
+            />
+            <label for="file" 
+            className="btn-3">
+              <span>select</span>
+            </label>
 
         <input
           className="add-input"

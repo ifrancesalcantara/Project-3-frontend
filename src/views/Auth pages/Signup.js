@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import authService from "../../lib/services/auth-service";
-import "./upload.css";
+import "./signup.css";
 
 import defaultProfileImages from "../../lib/config/defaultProfilePic";
 
@@ -12,9 +12,7 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password, image } = this.state;
-    const newUser = this.props.signup({ username, password, image });
-    console.log("AAAAAAAAAAAAAAAAAAA: ", newUser);
-    // this.setState({ username: "", password: "", image: null });
+    this.props.signup({ username, password, image });
   };
 
   handleChange = event => {
@@ -76,10 +74,6 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-          {/* <input
-            type="file"
-            className="signup-file-input"
-          /> */}
             <input type="file" 
             name="image"
             onChange={e => this.fileChange(e)}

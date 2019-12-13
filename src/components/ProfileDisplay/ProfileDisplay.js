@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import shortid from "shortid";
 import "./ProfileDisplay.css";
 import userService from "./../../lib/services/user-services";
+import paintingService from "../../lib/services/painting-service";
 
 export default class ProfileDisplay extends Component {
   constructor(props) {
@@ -16,6 +17,15 @@ export default class ProfileDisplay extends Component {
   componentDidMount = async () => {
     const userData = await userService.getUser(this.props.user);
     this.setState({ user: userData });
+  };
+
+  deleteMe = paintingId => {
+    paintingService.delete(paintingId);
+    setTimeout(async()=>{
+      const userData = await userService.getUser(this.props.user);
+      this.setState({ user: userData });
+
+    }, 300)
   };
 
   render() {
@@ -42,10 +52,16 @@ export default class ProfileDisplay extends Component {
                         />
                         <p>{painting.title}</p>
                       </Link>
-                      {/* {painting.tags.map(tag => (
-                        <span key={shortid.generate()}>#{tag} </span>
-                      ))} */}
-                      <Link to={`/painting/edit${painting._id}`}>Edit</Link>
+                      <div>
+                        <button
+                          onClick={() => {
+                            this.deleteMe(painting._id);
+                          }}
+                        >
+                          DELETE
+                        </button>
+                        <Link to={`/painting/edit${painting._id}`}>Edit</Link>
+                      </div>
                     </div>
                   ))}
                 </ul>

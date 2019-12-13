@@ -47,11 +47,6 @@ class PaintingDetails extends Component {
     return Math.floor(seconds) + " seconds";
   };
 
-  deleteMe = () => {
-    paintingService.delete(this.state.paintingId);
-    this.props.history.push("/"); //!!! Not refrechind with deletion
-  };
-
   render() {
     const { user, isLoggedIn } = this.props;
     const {
@@ -106,15 +101,6 @@ class PaintingDetails extends Component {
             <p>
               Last updated: {this.timeSince(Date.parse(updated_at)) + " ago."}
             </p>
-            {!user ? null : user._id === creator ? (
-              <button
-                onClick={() => {
-                  this.deleteMe();
-                }}
-              >
-                DELETE
-              </button>
-            ) : null}
           </div>
         ) : (
           <div>

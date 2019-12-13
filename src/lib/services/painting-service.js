@@ -22,7 +22,6 @@ class Auth {
   }
 
   getHomePaintings(){
-    console.log("HI")
     return this.paintings.get(`/home`).then(({ data }) => {
       return data;
     });

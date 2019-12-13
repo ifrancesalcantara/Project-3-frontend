@@ -1,16 +1,16 @@
 .add-painting-form h1 {
-    margin: 10vh 0 5vh
+    margin: 7vh 0 3vh
 }
 
 .add-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vh
 }
 
 .add-input {
   margin: 2vh 0;
+  height: 5vh
 }
 
 .hidden {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from "../../lib/AuthProvider"
+import "./Login.css"
 
 class Login extends Component {
     state = { username: "", password: "" };
@@ -20,7 +21,7 @@ class Login extends Component {
       const { username, password } = this.state;
   
       return (
-        <div>
+        <div className="login">
           <h1>Login</h1>
   
           <form onSubmit={this.handleFormSubmit}>
