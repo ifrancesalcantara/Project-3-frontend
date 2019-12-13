@@ -21,11 +21,10 @@ export default class ProfileDisplay extends Component {
 
   deleteMe = paintingId => {
     paintingService.delete(paintingId);
-    setTimeout(async()=>{
+    setTimeout(async () => {
       const userData = await userService.getUser(this.props.user);
       this.setState({ user: userData });
-
-    }, 300)
+    }, 300);
   };
 
   render() {
@@ -60,7 +59,9 @@ export default class ProfileDisplay extends Component {
                         >
                           DELETE
                         </button>
-                        <Link to={`/painting/edit${painting._id}`}>Edit</Link>
+                        <span>
+                          <Link to={`/painting/edit/${painting._id}`}>Edit</Link>
+                        </span>
                       </div>
                     </div>
                   ))}

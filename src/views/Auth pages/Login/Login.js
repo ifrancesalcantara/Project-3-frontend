@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withAuth } from "../../lib/AuthProvider"
+import { withAuth } from "../../../lib/AuthProvider"
 import "./Login.css"
 
 class Login extends Component {

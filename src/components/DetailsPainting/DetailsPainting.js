@@ -63,8 +63,7 @@ class PaintingDetails extends Component {
       <div className="details-div">
         {!this.state.paintingDetails ? null : isLoggedIn ? (
           <div>
-
-            <ReactImageMagnify  //!!!
+            <ReactImageMagnify //!!!
               enlargedImagePosition="over"
               {...{
                 smallImage: {
@@ -98,6 +97,14 @@ class PaintingDetails extends Component {
             <p>By: {creatorUsername}</p>
             {!tags ? null : tags.map(tag => <span className="tag">{tag}</span>)}
             <Link to={`/?game=${game}`}>{game}</Link>
+            {!user ? null : user._id === creator ? (
+              <span>
+                <Link to={`/painting/edit/${this.state.paintingDetails._id}`}>
+                  Edit
+                </Link>
+              </span>
+            ) : null}
+
             <p>
               Last updated: {this.timeSince(Date.parse(updated_at)) + " ago."}
             </p>

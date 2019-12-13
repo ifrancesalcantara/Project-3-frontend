@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { withAuth } from "../../lib/AuthProvider";
-import authService from "../../lib/services/auth-service";
+import { withAuth } from "../../../lib/AuthProvider";
+import authService from "../../../lib/services/auth-service";
 import "./signup.css";
 
-import defaultProfileImages from "../../lib/config/defaultProfilePic";
+import defaultProfileImages from "../../../lib/config/defaultProfilePic";
 
 class Signup extends Component {
   state = { username: "", password: "", image: null, imageLoaded: true };

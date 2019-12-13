@@ -21,7 +21,7 @@ class Auth {
     });
   }
 
-  getHomePaintings(){
+  getHomePaintings() {
     return this.paintings.get(`/home`).then(({ data }) => {
       return data;
     });
@@ -33,13 +33,16 @@ class Auth {
     });
   }
 
-  delete(paintingId){
-    return this.paintings.delete(`/${paintingId}`)
+  delete(paintingId) {
+    return this.paintings.delete(`/${paintingId}`);
   }
 
-  getFilteredPaintings(filterStr){
+  getFilteredPaintings(filterStr) {
+    return this.paintings.get(`/filter?${filterStr}`);
+  }
 
-    return this.paintings.get(`/filter?${filterStr}`)
+  updatePaintingByPut(updatedPaiting) {
+    return this.paintings.put(`/${updatedPaiting._id}`, updatedPaiting).then(({data})=>data)
   }
 }
 

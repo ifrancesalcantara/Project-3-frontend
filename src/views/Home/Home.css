@@ -1,5 +1,6 @@
-.add-link {
+.add-link img {
     position: fixed;
-    top: 85%;
-    left: 70%;
+    bottom: 5%;
+    right: 5%;
+    width: 10vh;
 }

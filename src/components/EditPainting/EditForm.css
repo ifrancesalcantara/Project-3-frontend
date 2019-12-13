@@ -1,0 +1,43 @@
+.edit-painting-div {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.edit-painting-div h1 {
+    margin-bottom: 2vh;
+}
+
+.edit-painting-div table {
+    margin-bottom: 2vh;
+     
+}
+.edit-form tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+}
+
+.edit-form button {
+  /* height: 5vh;
+  width: 5vh;
+  background-image: url("https://img.icons8.com/material-two-tone/96/000000/video-editing.png");
+  background-size: 5vh 5vh;
+  background-repeat: no-repeat; */
+}
+
+.edit-input {
+  margin: 3vh 0;
+  height: 5vh;
+}
+
+.edit-painting-div img {
+  width: 60vw;
+  margin-bottom: 2vh;
+
+}
