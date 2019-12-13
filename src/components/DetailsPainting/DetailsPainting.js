@@ -68,15 +68,7 @@ class PaintingDetails extends Component {
       <div className="details-div">
         {!this.state.paintingDetails ? null : isLoggedIn ? (
           <div>
-            {!user ? null : user._id === creator ? (
-              <button
-                onClick={() => {
-                  this.deleteMe();
-                }}
-              >
-                DELETE
-              </button>
-            ) : null}
+
             <ReactImageMagnify  //!!!
               enlargedImagePosition="over"
               {...{
@@ -110,10 +102,19 @@ class PaintingDetails extends Component {
             ) : null}
             <p>By: {creatorUsername}</p>
             {!tags ? null : tags.map(tag => <span className="tag">{tag}</span>)}
-            {game}
+            <Link to={`/?game=${game}`}>{game}</Link>
             <p>
               Last updated: {this.timeSince(Date.parse(updated_at)) + " ago."}
             </p>
+            {!user ? null : user._id === creator ? (
+              <button
+                onClick={() => {
+                  this.deleteMe();
+                }}
+              >
+                DELETE
+              </button>
+            ) : null}
           </div>
         ) : (
           <div>

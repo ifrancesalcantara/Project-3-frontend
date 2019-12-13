@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
+import queryString from "query-string";
 import "./Home.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import PaintingList from "../../components/ListPainting/ListPainting";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
+import paintingService from "../../lib/services/painting-service";
 
 class Home extends React.Component {
   constructor() {
@@ -13,26 +15,28 @@ class Home extends React.Component {
     this.state = {};
   }
 
-  getHomePaintings = () => {
-    axios
-      .get("http://localhost:5000/paintings/home")
-      .then(response => {
-        this.setState({ paintings: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  getHomePaintings = async () => {
+    const homePaintings = await paintingService.getHomePaintings();
+    console.log(homePaintings)
+    this.setState({ paintings: homePaintings });
   };
 
-  componentDidMount() {
-    this.getHomePaintings();
-  }
+  getFilteredPaintings = (filter) => {
+    paintingService.getFilteredPaintings(this.props.location.search)
+  };
+
+  componentDidMount = () => {
+    const filter = queryString.parse(this.props.location.search);
+    console.log(Object.keys(filter).length)
+    if (Object.keys(filter).length===0) this.getHomePaintings();
+    else this.getFilteredPaintings(filter);
+  };
 
   render() {
     const { isLoggedIn } = this.props;
     return (
       <div>
-        <Navbar view="home"/>
+        <Navbar view="home" />
 
         {!this.state.paintings ? null : (
           <PaintingList paintings={this.state.paintings} />

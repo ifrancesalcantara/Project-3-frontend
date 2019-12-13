@@ -23,14 +23,62 @@
     align-items: center;
 }
 
-.signup form input {
-    margin: 2vh
+.signup-input {
+    margin: 2vh;
+    width: 70vw;
+    height: 7vh;
+    border: 1px solid rgb(230, 230, 230)
 }
 
 .signup-btn {
     background-color: yellow;
 }
 
-.file-input {
-    width: 50vw
-}
+.signup-file-input {
+    /* border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px; */
+    /* overflow: hidden;
+    padding: 0;
+    position: absolute !important; */
+    /* white-space: nowrap; */
+    /* width: 1px; */
+  }
+   
+  .signup-file-input + label {
+    background: #f15d22;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+    background-color: #ee6d9e;
+    border-radius: 0;
+    overflow: hidden;
+  }
+    
+
+  .signup-file-input + span {
+    display: inline-block;
+    height: 100%;
+    transition: all 0.3s;
+    width: 100%;
+  }
+
+  /* .signup-file-input:focus + label, */
+  /* .signup-file-input + label:hover { */
+      /* background-color: #f15d22; */
+  /* } */
+    /*  */
+  /* .signup-file-input:focus + label { */
+    /* outline: 1px dotted #000; */
+  /* } */
