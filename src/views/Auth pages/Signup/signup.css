@@ -70,38 +70,23 @@
 }
 
 .signup {
-  background: url("https://benmarshall.me/wp-content/uploads/2018/08/background.gif");
   height: 100vh;
 }
 
-.wrapper {
-  background-color: #fff;
-  border-radius: 1rem;
-  margin: 0 auto;
-  max-width: 500px;
-  padding: 2rem;
-  width: 100%;
+#signup-back-arrow, #signup-next-arrow {
+  width: 12vw;
+  height: 12vw;
+  border: none;
+  background-color: transparent;
 }
 
-.footer {
-  font-size: .8rem;
-  margin-bottom: 0;
-  margin-top: 3rem;
-}
-
-h1,
-p {
-  margin-bottom: 2rem;
-}
-
-h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.7rem;
-}
-
-a {
-  color: #31c1ef;
-  text-decoration: none;
+.signup-backgound {
+  height: 100vh;
+  width: 100vw;
+  opacity: .5;
+  z-index: -3;
+  position: absolute;
+  background-image: url("https://benmarshall.me/wp-content/uploads/2018/08/background.gif");
 }
 
 .signup {

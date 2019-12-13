@@ -6,6 +6,10 @@ import "./signup.css";
 
 import defaultProfileImages from "../../../lib/config/defaultProfilePic";
 
+var defaultProfileImagesIndex = Math.floor(
+  Math.random() * defaultProfileImages.length
+);
+
 class Signup extends Component {
   state = { username: "", password: "", image: null, imageLoaded: true };
 
@@ -35,12 +39,30 @@ class Signup extends Component {
       .catch(error => console.log(error));
   };
 
+  changeImage(instruction) {
+    switch (instruction) {
+      case "to_previous":
+        defaultProfileImagesIndex--;
+        if (defaultProfileImagesIndex < 0) {
+          defaultProfileImagesIndex = defaultProfileImages.lenght;
+        }
+        break;
+      case "to_next":
+        defaultProfileImagesIndex++;
+        if (defaultProfileImagesIndex > defaultProfileImages.lenght) {
+          defaultProfileImagesIndex = 0;
+        }
+        break;
+      default:
+    }
+    this.setState({
+      image: defaultProfileImages[defaultProfileImagesIndex]
+    });
+  }
+
   componentDidMount() {
     this.setState({
-      image:
-        defaultProfileImages[
-          Math.floor(Math.random() * defaultProfileImages.length)
-        ]
+      image: defaultProfileImages[defaultProfileImagesIndex]
     });
   }
 
@@ -48,8 +70,25 @@ class Signup extends Component {
     const { username, password, image } = this.state;
     return (
       <div className="signup">
+        <div className="signup-backgound"></div>
         <h1>Welcome!!</h1>
-        {!this.state.image ? null : <img src={this.state.image} alt="" />}
+        {!this.state.image ? null : (
+          <div>
+            <img
+              id="signup-back-arrow"
+              src="https://img.icons8.com/material-two-tone/96/000000/back.png"
+              alt=""
+              onClick={() => this.changeImage("to_previous")}
+            />
+            <img src={this.state.image} alt="" />
+            <img
+              id="signup-next-arrow"
+              src="https://img.icons8.com/material/96/000000/forward--v1.png"
+              alt=""
+              onClick={() => this.changeImage("to_next")}
+            />
+          </div>
+        )}
         <p>Please, fill in the fields below:</p>
         <form
           onSubmit={this.handleFormSubmit}
@@ -74,14 +113,15 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
-            <input type="file" 
+          <input
+            type="file"
             name="image"
             onChange={e => this.fileChange(e)}
-            id="file" />
-            <label for="file" 
-            className="btn-3">
-              <span>select</span>
-            </label>
+            id="file"
+          />
+          <label htmlFor="file" className="btn-3">
+            <span>select</span>
+          </label>
           <br />
           {this.state.imageLoaded ? (
             <input type="submit" value="Signup" className="signup-btn" />
