@@ -6,7 +6,7 @@ import Home from "./views/Home/Home";
 import Login from "./views/Auth pages/Login/Login";
 import Signup from "./views/Auth pages/Signup/Signup";
 import Profile from "../src/views/Profile";
-import Painting from "./views/Painting.js";
+import Painting from "./views/Painting";
 import PaintingsAdd from "./views/AddPaintings";
 import Edit from "./views/Edit";
 import Chat from "./views/Chat";

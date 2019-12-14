@@ -2,10 +2,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2px
 }
 
 .exploreBar div:first-of-type {
     margin-left: 2vw;
+}
+
+
+.exploreBar div:first-of-type select {
+    width: 25vw
 }
 
 .exploreBar div:nth-of-type(2) {
@@ -14,6 +20,7 @@
 
 .explore-searchbar{
     border: 1px solid #e6e6e6;
+    width: 40vw
 }
 
 .exploreBar div:nth-of-type(2) button {

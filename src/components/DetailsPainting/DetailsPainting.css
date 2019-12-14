@@ -3,16 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .details-img-div {
-    width: 80vw;
+  width: 80vw;
 }
 
-.details-div img {
-  height: 20vw;
-  margin: 8vh 0 5vh 0;
+.edit-main-img {
+  height: 44vh;
+  margin: 6vh 0 5vh 0;
 }
 
 .details-div p:nth-of-type(2) {
@@ -21,9 +20,26 @@
   text-align: center;
 }
 
-.title {
-}
-
 .tag {
   background-color: yellow;
+}
+
+.details-view-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-view-info div {
+  display: flex;
+  align-items: center;
+}
+
+.details-view-info div:first-of-type {
+  margin-right: 10vw;
+}
+.details-view-info div img {
+  height: 3vh;
+  margin-right: 2vw;
+  margin-bottom: 3px 
 }

@@ -20,6 +20,12 @@ class Users {
       return res.data;
     });
   }
+  addSeen(paintingId){
+    return this.users.patch(`/add-seen/${paintingId}`).then(res => {
+      res.data.password = "*";
+      return res.data;
+    });
+  }
 }
 
 const axiosRequestFunctions = new Users();

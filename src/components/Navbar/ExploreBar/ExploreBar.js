@@ -39,7 +39,7 @@ export default class ExploreBar extends Component {
             className="explore-select"
             onClick={this.getSortedPaintings}
           >
-            <option>Most popular</option>
+            <option>Most liked</option>
             <option>Most seen</option>
             <option>Trending</option>
             <option>Date (first: new)</option>
@@ -47,7 +47,7 @@ export default class ExploreBar extends Component {
           </select>
         </div>
         <div>
-          <input className="explore-searchbar" type="text" />
+          <input className="explore-searchbar" type="text" placeholder="Search by title"/>
           <img
             onClick={this.getFilteredPaintings}
             src="https://img.icons8.com/ios-glyphs/60/000000/search.png"

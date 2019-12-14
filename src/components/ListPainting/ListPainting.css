@@ -42,7 +42,6 @@ position: relative;
 .list-title {
     color: rgb(17, 17, 17);
     padding: 1vh 4vw;
-    font-family: 'Lilita One', cursive;
     font-size: 1.2em;
     height: 6vh !important; /*!!!*/;
     white-space: nowrap;

@@ -2,8 +2,9 @@
   text-align: center;
   color: black;
   position: relative;
+  font-family: "Lilita One", cursive;
 }
 
 select {
-  overflow: auto
+  overflow: auto;
 }

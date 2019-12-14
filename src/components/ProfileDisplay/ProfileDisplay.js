@@ -40,28 +40,33 @@ export default class ProfileDisplay extends Component {
                 .paintings[0] ? null : (
               <div>
                 <h2>Your paintings</h2>
-                <ul>
+                <ul className="profile-paintings-wrapper">
                   {this.state.user.paintings.map(painting => (
-                    <div key={shortid.generate()}>
+                    <div key={shortid.generate()} className="profile-painting">
                       <Link to={`/painting/${painting._id}`}>
                         <img
                           src={painting.image}
                           alt=""
-                          className="painting-img"
                         />
-                        <p>{painting.title}</p>
                       </Link>
                       <div>
-                        <button
-                          onClick={() => {
-                            this.deleteMe(painting._id);
-                          }}
-                        >
-                          DELETE
-                        </button>
-                        <span>
-                          <Link to={`/painting/edit/${painting._id}`}>Edit</Link>
-                        </span>
+                        <Link to={`/painting/${painting._id}`}>
+                          <p>{painting.title}</p>
+                        </Link>
+                        <div>
+                          <button
+                            onClick={() => {
+                              this.deleteMe(painting._id);
+                            }}
+                          >
+                            DELETE
+                          </button>
+                          <span>
+                            <Link to={`/painting/edit/${painting._id}`}>
+                              Edit
+                            </Link>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
