@@ -9,6 +9,7 @@ import PaintingList from "../../components/ListPainting/ListPainting";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import paintingService from "../../lib/services/painting-service";
+import userService from "./../../lib/services/user-services";
 
 class Home extends React.Component {
   constructor() {
@@ -40,8 +41,12 @@ class Home extends React.Component {
     else this.getFilteredPaintings(filter);
   };
 
+  handleLike =(string)=>{
+    userService.handleLike(string)
+  }
+
   render() {
-    const { isLoggedIn } = this.props;
+    const { user, isLoggedIn } = this.props;
     return (
       <div>
         <Navbar view="home" getHomePaintings={this.getHomePaintings} />
@@ -52,7 +57,8 @@ class Home extends React.Component {
         />
 
         {!this.state.paintings ? null : (
-          <PaintingList paintings={this.state.paintings} />
+          <PaintingList user={user}paintings={this.state.paintings} 
+          handleLike={this.handleLike}/>
         )}
 
         {isLoggedIn ? (

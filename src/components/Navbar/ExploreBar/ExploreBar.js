@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import queryString, { stringify } from "query-string";
 import "./ExploreBar.css";
 
 export default class ExploreBar extends Component {
@@ -42,6 +41,7 @@ export default class ExploreBar extends Component {
           >
             <option>Most popular</option>
             <option>Most seen</option>
+            <option>Trending</option>
             <option>Date (first: new)</option>
             <option>Date (first: old)</option>
           </select>

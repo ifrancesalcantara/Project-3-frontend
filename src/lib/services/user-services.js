@@ -1,21 +1,27 @@
 import axios from "axios";
 
-class Auth {
+class Users {
   constructor() {
-    this.auth = axios.create({
-      baseURL: "http://localhost:5000",
+    this.users = axios.create({
+      baseURL: "http://localhost:5000/users",
       withCredentials: true //<-- Goes with CORS credentials
     });
   }
 
   getUser(id) {
-    return this.auth.get(`/users/${id}`).then(res => {
+    return this.users.get(`/${id}`).then(res => {
+      res.data.password = "*";
+      return res.data;
+    });
+  }
+  handleLike(string) {
+    return this.users.patch(string).then(res => {
       res.data.password = "*";
       return res.data;
     });
   }
 }
 
-const axiosRequestFunctions = new Auth();
+const axiosRequestFunctions = new Users();
 
 export default axiosRequestFunctions;

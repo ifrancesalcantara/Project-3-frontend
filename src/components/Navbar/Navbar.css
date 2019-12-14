@@ -2,6 +2,7 @@
   background-color: rgb(255, 255, 123);
   padding: 0 !important; /* !!! */
   position: sticky !important;
+  z-index: 100;
   top: 0vh
 }
 
