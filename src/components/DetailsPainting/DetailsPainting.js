@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "./DetailsPainting.css";
 import paintingService from "../../lib/services/painting-service";
 import ReactImageMagnify from "react-image-magnify";
+import Tag from "./../AddPainting/Tag";
+import shortid from "shortid";
 
 class PaintingDetails extends Component {
   constructor(props) {
@@ -95,7 +97,15 @@ class PaintingDetails extends Component {
               </Link>
             ) : null}
             <p>By: {creatorUsername}</p>
-            {!tags ? null : tags.map(tag => <span className="tag">{tag}</span>)}
+            <div>
+              {!tags
+                ? null
+                : tags.map(tag => (
+                    <Link key={shortid.generate()}to={`/?tag=${tag}`}>
+                      <Tag text={tag}></Tag>
+                    </Link>
+                  ))}
+            </div>
             <Link to={`/?game=${game}`}>{game}</Link>
             {!user ? null : user._id === creator ? (
               <span>
@@ -115,7 +125,11 @@ class PaintingDetails extends Component {
             <div>
               {!tags
                 ? null
-                : tags.map(tag => <span className="tag">{tag}</span>)}
+                : tags.map(tag => (
+                    <span key={shortid.generate()} className="tag">
+                      {tag}
+                    </span>
+                  ))}
             </div>
             <p className="title">{title}</p>
             <p>{description}</p>

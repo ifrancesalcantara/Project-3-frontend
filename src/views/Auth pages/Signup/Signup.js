@@ -120,8 +120,10 @@ class Signup extends Component {
             id="file"
           />
           <label htmlFor="file" className="btn-3">
-            <span>select</span>
+            <span>Upload</span>
           </label>
+            <span className="signup-or">or</span>
+
           <br />
           {this.state.imageLoaded ? (
             <input type="submit" value="Signup" className="signup-btn" />

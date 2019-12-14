@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import "./AddPaintingForm.css"
+import shortid from "shortid";
+import "./AddPaintingForm.css";
+
+import Tag from "./Tag";
 
 export default class AddPaintingForm extends Component {
   constructor(props) {
@@ -12,69 +15,79 @@ export default class AddPaintingForm extends Component {
     };
   }
 
+
+
   render() {
     return (
-        <div className="add-painting-form">
-            <h1>Add a new painting</h1>
-            <p id="error-message" className="hidden">Error mesage</p>
-      <form onSubmit={this.props.handleSubmit} className="add-form">
-        <input
-          className="add-input"
-          onChange={this.props.handleChange}
-          type="text"
-          name="title"
-          placeholder="title"
-          required
-        />
+      <div className="add-painting-form">
+        <h1>Add a new painting</h1>
+        <p id="error-message" className="hidden">
+          Error mesage
+        </p>
+        <form onSubmit={this.props.handleSubmit} className="add-form">
+          <input
+            className="add-input"
+            onChange={this.props.handleChange}
+            type="text"
+            name="title"
+            placeholder="Title"
+            required
+          />
 
-        <textarea
-          className="add-input"
-          onChange={this.props.handleChange}
-          type="text"
-          name="description"
-          placeholder="description"
-        />
+          <textarea
+            className="add-description"
+            onChange={this.props.handleChange}
+            type="text"
+            name="description"
+            placeholder="Description"
+          />
 
-        {/* <input
-          className="add-input"
-          type="file"
-          name="image"
-          onChange={e => this.props.fileChange(e)}
-          required
-        /> */}
-        <input type="file" 
+          <input
+            type="file"
             name="image"
             onChange={e => this.props.fileChange(e)}
-            id="file" 
-            />
-            <label for="file" 
-            className="btn-3">
-              <span>select</span>
-            </label>
+            id="file"
+          />
+          <label for="file" className="btn-3">
+            <span>Upload</span>
+          </label>
+          <span>or</span>
+          <input
+            id="signup-img-link"
+            className="signup-input"
+            placeholder="Link an image (Sketchfab OK)"
+          ></input>
 
-        <input
-          className="add-input"
-          onChange={this.props.handleChange}
-          type="text"
-          name="tags"
-          placeholder="tags"
-        />
+          <div id="add-tags-display">
+          {!this.props.tags.length
+            ? null
+            : this.props.tags.map(tag => {
+                return <Tag view="add-form" key={shortid.generate()}deleteTag={()=>this.props.deleteTag(tag)} text={tag}></Tag>;
+              })}
+              </div>
+          <input
+            className="add-input add-tags-fake"
+            onChange={this.props.addTagValue}
+            type="text"
+            name="tags"
+            placeholder="Tags (separated with spaces)"
+          />
 
-        <select
-        id="select"
-          size="1"
-          name="game"
-          onChange={this.props.handleSelectChange}
-          className="browser-default  custom-select-lg mb-3"
-        >
-          <option>Warhammer 40k</option>
-          <option>Warhammer Fantasy</option>
-          <option>Legends of the Old West</option>
-        </select>
+          <select
+            id="select"
+            size="1"
+            name="game"
+            onChange={this.props.handleSelectChange}
+            className="browser-default  custom-select-lg mb-3"
+          >
+            <option>Warhammer 40k</option>
+            <option>Warhammer Fantasy</option>
+            <option>Legends of the Old West</option>
+          </select>
 
-        <button>Submit</button>
-      </form>
-      </div> 
+          <button>Submit</button>
+        </form>
+      </div>
     );
   }
 }

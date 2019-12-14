@@ -1,5 +1,5 @@
 .add-painting-form h1 {
-    margin: 7vh 0 3vh
+  margin: 7vh 0 3vh;
 }
 
 .add-form {
@@ -10,13 +10,33 @@
 
 .add-input {
   margin: 2vh 0;
-  height: 5vh
+  height: 5vh;
+  width: 70vw;
+  border: 1px solid #e6e6e6;
+}
+
+.add-description {
+  margin: 2vh;
+  border: 1px solid #e6e6e6;
+  height: 10vh;
+  width: 70vw;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
+.add-displayed-tag {
+  padding: 8px 10px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: rgb(255, 1, 221);
+  margin: 0px 9px;
+}
+.add-tag-delete-img {
+  width: 12px !important;
+  padding: 2px;
+  margin-left: 2px;
+}
 .error-message {
-    
 }

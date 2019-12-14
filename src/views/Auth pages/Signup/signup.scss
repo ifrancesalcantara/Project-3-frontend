@@ -1,158 +1,172 @@
 [type="file"] {
-    height: 0;
-    overflow: hidden;
-    width: 0;
-  }
-  
-  [type="file"] + label {
-    background: #f15d22;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-      font-family: 'Poppins', sans-serif;
-      font-size: inherit;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    outline: none;
-    padding: 1rem 50px;
-    position: relative;
-    transition: all 0.3s;
-    vertical-align: middle;
-    
-    &:hover, :active {
-      background-color: darken(#f15d22, 10%);
-    }
-    
-    &.btn-3 {
-      background-color: #6de5ee;
-      border-radius: 0;
-      overflow: hidden;
-      
-      span {
-        display: inline-block;
-        height: 100%;
-        transition: all 0.3s;
-        width: 100%;
-      }
-      
-      &::before {
-        color: #fff;
-        content: "\f382";
-        font-family: "Font Awesome 5 Pro";
-        font-size: 130%;
-        height: 100%;
-        left: 0;
-        line-height: 2.6;
-        position: absolute;
-        top: -180%;
-        transition: all 0.3s;
-        width: 100%;
-      }
-  
-      &:hover, :active {
-        background-color: darken(#ee6d9e, 30%);
-        
-        span {
-          transform: translateY(300%);
-        }
-          
-        &::before {
-          top: 0;
-        }
-      }
-    }
-  }
-  
-  // Demo specific styles below
-  .signup {
-    height: 100vh;
-    // opacity: .5;
-    // z-index: -3;
-    // background-image: url('https://benmarshall.me/wp-content/uploads/2018/08/background.gif');
-
-  }
-
-#signup-back-arrow, #signup-next-arrow {
-  width: 12vw;
-  height: 12vw;
-  border: none;
-  background-color: transparent;
-
+  height: 0;
+  overflow: hidden;
+  width: 0;
 }
 
-  .signup-backgound{
-    height: 100vh;
-    width: 100vw;
-    opacity: .5;
-    z-index: -3;
-    position: absolute;
-    background-image: url('https://benmarshall.me/wp-content/uploads/2018/08/background.gif');
+[type="file"] + label {
+  background: #f15d22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: .2rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+
+  &:hover,
+  :active {
+    background-color: darken(#f15d22, 10%);
   }
 
-  .signup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  &.btn-3 {
+    background-color: #6de5ee;
+    border-radius: 0;
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      height: 100%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    &::before {
+      color: #fff;
+      content: "\f382";
+      font-family: "Font Awesome 5 Pro";
+      font-size: 130%;
+      height: 100%;
+      left: 0;
+      line-height: 2.6;
+      position: absolute;
+      top: -180%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    &:hover,
+    :active {
+      background-color: darken(#ee6d9e, 30%);
+
+      span {
+        transform: translateY(300%);
+      }
+
+      &::before {
+        top: 0;
+      }
+    }
+  }
+}
+
+// Demo specific styles below
+.signup {
+  height: 100vh;
+  // opacity: .5;
+  // z-index: -3;
+  // background-image: url('https://benmarshall.me/wp-content/uploads/2018/08/background.gif');
+}
+
+#signup-back-arrow,
+#signup-next-arrow {
+  width: 8vh;
+  height: 8vh;
+  border: none;
+  background-color: transparent;
+}
+
+.signup-backgound {
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+  z-index: -3;
+  position: absolute;
+  background-image: url("https://benmarshall.me/wp-content/uploads/2018/08/background.gif");
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .signup h1 {
-    margin: 6vh 0 0 0;
+  margin: 6vh 0 0 0;
 }
 
 .signup img {
-    width: 30vw;
-    height: 30vw;
-    border: 1vw solid black;
-    border-radius: 50%;
-    margin: 4vh 0;
-    background-color: white;
+  width: 20vh;
+  height: 20vh;
+  border: 0.7vh solid black;
+  border-radius: 50%;
+  margin: 4vh 0;
+  background-color: black;
+}
+.signup p:first-of-type{
+  margin-bottom: 0;
 }
 
 .signup form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .signup-input {
-    margin: 2vh;
-    width: 70vw;
-    height: 7vh;
-    border: 1px solid rgb(230, 230, 230)
+  margin: 2vh;
+  width: 70vw;
+  height: 7vh;
+  border: 1px solid rgb(230, 230, 230);
 }
 
+.signup-or {
+
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
 .signup-btn {
-    background-color: yellow;
+  background-color: yellow;
 }
 
-   
-  .signup-file-input + label {
-    background: #f15d22;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-      font-family: 'Poppins', sans-serif;
-      font-size: inherit;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    outline: none;
-    padding: 1rem 50px;
-    position: relative;
-    transition: all 0.3s;
-    vertical-align: middle;
-    background-color: #6deed8;
-    border-radius: 0;
-    overflow: hidden;
-  }
-    
+.signup-file-input + label {
+  background: #f15d22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+  background-color: #6deed8;
+  border-radius: 0;
+  overflow: hidden;
+}
 
-  .signup-file-input + span {
-    display: inline-block;
-    height: 100%;
-    transition: all 0.3s;
-    width: 100%;
-  }
+.signup-file-input + span {
+  display: inline-block;
+  height: 100%;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+
+#signup-img-link {
+  
+}

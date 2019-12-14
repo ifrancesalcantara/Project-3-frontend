@@ -9,7 +9,6 @@ class Auth {
   }
 
   imageUpload(file) {
-    console.log(file);
     return this.paintings.post("/image", file).then(({ data }) => {
       return data;
     });
@@ -38,7 +37,7 @@ class Auth {
   }
 
   getFilteredPaintings(filterStr) {
-    return this.paintings.get(`/filter?${filterStr}`);
+    return this.paintings.get(`/${filterStr}`);
   }
 
   updatePaintingByPut(updatedPaiting) {

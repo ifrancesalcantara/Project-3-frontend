@@ -8,8 +8,6 @@ class Navbar extends React.Component {
     profilePic: ""
   };
 
-  componentDidMount() {}
-
   render() {
     const { user, logout, isLoggedIn } = this.props;
     return (
@@ -27,9 +25,18 @@ class Navbar extends React.Component {
                 />
               </li>
             )}
-            <li style={{ listStyleType: "none" }}>
-              <Link to="/">Maquetepinto</Link>
-            </li>
+            {this.props.view === "home" ? (
+              <li style={{ listStyleType: "none" }}>
+                <Link to="/">
+                  <h1 onClick={this.props.getHomePaintings}>Maquetepinto</h1>
+                </Link>
+              </li>
+            ) : (
+              <li style={{ listStyleType: "none" }}>
+                <Link to="/">Maquetepinto</Link>
+              </li>
+            )}
+
             {/* <span className="vertical-hr" /> */}
 
             <li style={{ listStyleType: "none" }}>
