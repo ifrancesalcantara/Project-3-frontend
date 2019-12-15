@@ -4,6 +4,8 @@ import shortid from "shortid";
 import "./ProfileDisplay.css";
 import userService from "./../../lib/services/user-services";
 import paintingService from "../../lib/services/painting-service";
+import LoadingGif from "./../LoadingGif"
+import Image from "./../Image"
 
 export default class ProfileDisplay extends Component {
   constructor(props) {
@@ -16,16 +18,21 @@ export default class ProfileDisplay extends Component {
 
   componentDidMount = () => {
     this.refreshProfile();
-    document
-      .querySelector("#navbar-profile-img")
-      .addEventListener("click", () => this.refreshProfile());
+    if(document
+      .querySelector("#navbar-profile-img")){
+        document
+          .querySelector("#navbar-profile-img")
+          .addEventListener("click", () => this.refreshProfile());
+      }
   };
 
-  refreshProfile =async () => {
-    setTimeout(async()=>{
-      const userData = await userService.getUser(this.props.match.params.userId);
+  refreshProfile = async () => {
+    setTimeout(async () => {
+      const userData = await userService.getUser(
+        this.props.match.params.userId
+      );
       this.setState({ user: userData });
-    }, 50)
+    }, 50);
   };
 
   deleteMe = paintingId => {
@@ -36,49 +43,81 @@ export default class ProfileDisplay extends Component {
     }, 50);
   };
 
+  LogoutAndGoToSignup =()=> {
+    this.props.logout()
+    this.props.history.push("/signup")
+  }
+
   render() {
-    const { logout } = this.props;
     return (
       <div>
-        <div></div>
-        {!this.state.user ? null : (
+        {!this.state.user ? <LoadingGif/> : (
           <div key={shortid.generate()} className="profile-info">
-            <button className="redbutton" onClick={logout}>
-              LOGOUT
-            </button>
-            <h1>{this.state.user.username}</h1>
+            {!this.props.user ? null : (
+              <span>
+                {this.props.user._id !== this.state.user._id ? null : (
+                  <button className="redbutton logout-button" onClick={this.LogoutAndGoToSignup}>
+                    LOGOUT
+                  </button>
+                )}
+              </span>
+            )}
 
-            {!this.state.user.paintings ? null : !this.state.user
-                .paintings[0] ? null : (
+            {!this.state.user.paintings ? <h1>{this.state.user.username} has no paintings</h1> : !this.state.user
+                .paintings[0] ? <h1>You don't have any painting yet :(</h1> : (
               <div>
-                <h2>Your paintings</h2>
+                {!this.props.user ? <h1 id="details-title-not-user">{this.state.user.username}'s paintings</h1> : this.props.user._id !== this.state.user._id ? (
+                  <h1>{this.state.user.username}'s paintings</h1>
+                ) : (
+                  <h1>Your paintings</h1>
+                )}
+
                 <ul className="profile-paintings-wrapper">
                   {this.state.user.paintings.map(painting => (
                     <div key={shortid.generate()} className="profile-painting">
                       <Link to={`/painting/${painting._id}`}>
-                        <img src={painting.image} alt="" />
+                      <Image src={painting.image} view="profile"/>
                       </Link>
                       <div>
-                        <Link to={`/painting/${painting._id}`}>
-                          <p className="profile-painting-title">
+                        {!this.props.user? <Link to={`/painting/${painting._id}`}>
+                          <p className="other-profile-painting-title">
+                            {painting.title}
+                          </p>
+                        </Link> :this.props.user._id !== this.state.user._id ? 
+                          <Link to={`/painting/${painting._id}`}>
+                          <p className="other-profile-painting-title">
+                            {painting.title}
+                          </p>
+                        </Link> : (
+                          <Link to={`/painting/${painting._id}`}>
+                          <p className="my-profile-painting-title">
                             {painting.title}
                           </p>
                         </Link>
+                        )}
+                        
                         <p>{painting.description}</p>
                         <div>
-                          <button
-                            className="redbutton"
-                            onClick={() => {
-                              this.deleteMe(painting._id);
-                            }}
-                          >
-                            DELETE
-                          </button>
-                          <span>
-                            <Link to={`/painting/edit/${painting._id}`}>
-                              <button className="yellowbutton">EDIT</button>
-                            </Link>
-                          </span>
+                          {!this.props.user? null
+                          :
+                          this.props.user._id !==
+                          this.state.user._id ? null : (
+                            <div>
+                              <button
+                                className="redbutton"
+                                onClick={() => {
+                                  this.deleteMe(painting._id);
+                                }}
+                              >
+                                DELETE
+                              </button>
+                              <span>
+                                <Link to={`/painting/edit/${painting._id}`}>
+                                  <button className="yellowbutton">EDIT</button>
+                                </Link>
+                              </span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>

@@ -58,16 +58,13 @@ class Navbar extends React.Component {
                 />
               </li>
             )}
-            <span className="empty-hr" />
 
             <li style={{ listStyleType: "none" }}>
-              <Link to="/">Maquetepinto</Link>
+              <Link to="/" id="navbar-title">Maquetepinto</Link>
             </li>
-            <span className="vertical-hr" />
             <li style={{ listStyleType: "none" }}>
               <Link to="/login">Log In</Link>
             </li>
-            <span className="vertical-hr" />
             <li style={{ listStyleType: "none" }}>
               <Link to="/signup">Sign up</Link>
             </li>

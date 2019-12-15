@@ -10,7 +10,7 @@
 }
 
 .edit-main-img {
-  width: 44vh;
+  height: 44vh;
   margin: 6vh 0 2vh 0;
 }
 
@@ -26,8 +26,6 @@
   align-items: center;
 }
 
-.details-view-info div:first-of-type {
-}
 .details-view-info div img {
   height: 3vh;
   margin-right: 2vw;

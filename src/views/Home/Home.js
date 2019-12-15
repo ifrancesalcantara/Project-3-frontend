@@ -36,7 +36,7 @@ class Home extends React.Component {
 
   componentDidMount = () => {
     const filter = queryString.parse(this.props.location.search);
-    console.log(Object.keys(filter).length);
+    // console.log(Object.keys(filter).length);
     if (Object.keys(filter).length === 0) this.getHomePaintings();
     else this.getFilteredPaintings(filter);
   };

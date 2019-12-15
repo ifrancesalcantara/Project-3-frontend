@@ -43,14 +43,14 @@ class Signup extends Component {
     switch (instruction) {
       case "to_previous":
         defaultProfileImagesIndex--;
-        if (defaultProfileImagesIndex < 0) {
-          defaultProfileImagesIndex = defaultProfileImages.lenght;
+        if (defaultProfileImagesIndex < 1) {
+          defaultProfileImagesIndex = defaultProfileImages.length-1;
         }
         break;
       case "to_next":
         defaultProfileImagesIndex++;
-        if (defaultProfileImagesIndex > defaultProfileImages.lenght) {
-          defaultProfileImagesIndex = 0;
+        if (defaultProfileImagesIndex > defaultProfileImages.length-1) {
+          defaultProfileImagesIndex = 1;
         }
         break;
       default:
@@ -71,6 +71,12 @@ class Signup extends Component {
     return (
       <div className="signup">
         <div className="signup-backgound"></div>
+        <img
+        id="auth-back"
+          onClick={() => this.props.history.push("/")}
+          src="https://img.icons8.com/metro/52/000000/back.png"
+          alt=""
+        />
         <h1>Welcome!!</h1>
         {!this.state.image ? null : (
           <div>
@@ -80,7 +86,7 @@ class Signup extends Component {
               alt=""
               onClick={() => this.changeImage("to_previous")}
             />
-            <img src={this.state.image} alt="" />
+            <img className="signup-profile-img"src={this.state.image} alt="" />
             <img
               id="signup-next-arrow"
               src="https://img.icons8.com/material/96/000000/forward--v1.png"
@@ -122,13 +128,13 @@ class Signup extends Component {
           <label htmlFor="file" className="btn-3">
             <span>Upload</span>
           </label>
-            <span className="signup-or">or</span>
+          <span className="signup-or">or</span>
 
           <br />
           {this.state.imageLoaded ? (
-            <input type="submit" value="Signup" className="signup-btn" />
+            <input type="submit" value="Signup" className="signup-btn yellowbutton" />
           ) : (
-            <input type="button" value="Signup" className="signup-btn" />
+            <input type="button" value="Signup" className="signup-btn yellowbutton" />
           )}
         </form>
 

@@ -45,6 +45,7 @@ class PaintingsAdd extends React.Component {
 
   handleChange = e => {
     const { name, value } = e.target;
+    console.log(name, value)
     const newPaintingCopy = { ...this.state.newPainting };
     newPaintingCopy[name] = value;
     this.setState({ newPainting: newPaintingCopy });

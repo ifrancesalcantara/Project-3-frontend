@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from "../../../lib/AuthProvider"
+import { Link } from "react-router-dom";
 import "./Login.css"
 
 class Login extends Component {
@@ -22,6 +23,12 @@ class Login extends Component {
   
       return (
         <div className="login">
+        <img
+        id="auth-back"
+          onClick={() => this.props.history.push("/")}
+          src="https://img.icons8.com/metro/52/000000/back.png"
+          alt=""
+        />
           <h1>Login</h1>
   
           <form onSubmit={this.handleFormSubmit}>
@@ -32,8 +39,9 @@ class Login extends Component {
             <label>Password:</label>
             <input type="password" name="password" value={password} onChange={this.handleChange} />
   
-            <input type="submit" value="Login" />
+            <input type="submit" id="login-btn" className="yellowbutton" value="Login" />
           </form>
+          <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
         </div>
       );
     }

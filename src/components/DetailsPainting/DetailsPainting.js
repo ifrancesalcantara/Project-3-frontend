@@ -7,6 +7,8 @@ import userService from "./../../lib/services/user-services";
 import ReactImageMagnify from "react-image-magnify";
 import Tag from "./../AddPainting/Tag";
 import shortid from "shortid";
+import LoadingGif from "../LoadingGif";
+import Image from "./../Image"
 
 class PaintingDetails extends Component {
   constructor(props) {
@@ -98,11 +100,11 @@ class PaintingDetails extends Component {
       <div className="details-div">
         {!this.state.paintingDetails ? null : isLoggedIn ? (
           <div>
-            <img className="edit-main-img" src={image} alt="" />
+            <Image src={image} view="display" className="edit-main-img"/>
             <div>
               <div className="details-view-info">
                 <div>
-                  <img
+                                    <img
                     className="edit-seenTimes"
                     src="https://img.icons8.com/material-rounded/96/000000/visible.png"
                     alt=""
@@ -121,9 +123,7 @@ class PaintingDetails extends Component {
                       alt={paintingId} //!!! CUSTOM ID OR OTHER WAY TO PASS IT. Data-NOT WORKING
                     />
                     <span id="likes-qty">{usersWhoLiked.length}</span>
-                   
                   </div>
-                  
                 ) : (
                   <div>
                     <img
@@ -135,9 +135,9 @@ class PaintingDetails extends Component {
                     <span id="likes-qty">{usersWhoLiked.length}</span>
                   </div>
                 )}
-                    <span className="details-game">
-                <Link to={`/?game=${game}`}>{game}</Link>
-              </span>
+                <span className="details-game">
+                  <Link to={`/?game=${game}`}>{game}</Link>
+                </span>
               </div>
             </div>
             {!user ? null : user._id === creator ? (
@@ -157,7 +157,9 @@ class PaintingDetails extends Component {
                 <p className="details-title">{title}</p>
               </div>
             )}
-            {!description ? null : <p className="details-description">{description}</p>}
+            {!description ? null : (
+              <p className="details-description">{description}</p>
+            )}
             <div className="details-tags-wrapper">
               {!tags
                 ? null
@@ -188,17 +190,96 @@ class PaintingDetails extends Component {
           </div>
         ) : (
           <div>
-            <img src={image} alt="" />
+          <Image src={image} view="display" className="edit-main-img"/>
+            
             <div>
+              <div className="details-view-info">
+                <div>
+                  <img
+                    className="edit-seenTimes"
+                    src="https://img.icons8.com/material-rounded/96/000000/visible.png"
+                    alt=""
+                  />
+                  <span>{timesSeen}</span>
+                </div>
+                <span style={{ "marginBottom": 0 }}>
+                  {usersWhoLiked ? (
+                    <div>
+                      <Link to="/login">
+                        <img
+                          src="https://img.icons8.com/ios/50/000000/christmas-star.png"
+                          alt=""
+                        />
+                      </Link>
+                      <span>{usersWhoLiked.length}</span>
+                    </div>
+                  ) : (
+                    <LoadingGif />
+                  )}
+                </span>
+                {!this.props
+                  .user ? null : !usersWhoLiked ? null : usersWhoLiked.includes(
+                    user._id
+                  ) ? (
+                  <div>
+                    <img
+                      className="details-filledStar"
+                      onClick={this.handleLikeAndToggleImageSource}
+                      src="https://img.icons8.com/color/100/000000/filled-star.png"
+                      alt={paintingId} //!!! CUSTOM ID OR OTHER WAY TO PASS IT. Data-NOT WORKING
+                    />
+                    <span id="likes-qty">{usersWhoLiked.length}</span>
+                  </div>
+                ) : (
+                  <div>
+                    <img
+                      onClick={this.handleLikeAndToggleImageSource}
+                      className="details-emptyStar"
+                      src="https://img.icons8.com/ios/50/000000/christmas-star.png"
+                      alt={paintingId}
+                    />
+                    <span id="likes-qty">{usersWhoLiked.length}</span>
+                  </div>
+                )}
+                <span className="details-game">
+                  <Link to={`/?game=${game}`}>{game}</Link>
+                </span>
+              </div>
+            </div>
+            
+              <div className="details-title-wrapper">
+                <p className="details-title">{title}</p>
+              </div>
+            {!description ? null : (
+              <p className="details-description">{description}</p>
+            )}
+            <div className="details-tags-wrapper">
               {!tags
                 ? null
-                : tags.map(tag => <span key={shortid.generate()}>{tag}</span>)}
+                : tags.map(tag => (
+                    <Link key={shortid.generate()} to={`/?tag=${tag}`}>
+                      <Tag text={tag}></Tag>
+                    </Link>
+                  ))}
             </div>
-            <p className="title">{title}</p>
-            <p>{description}</p>
+            <div className="detail-creator-info-div">
+              <p>
+                By: <Link to={`/profile/${creator}`}>{creatorUsername}</Link>
+              </p>
 
-            <p>{creatorUsername}</p>
-            <p>{JSON.stringify(this.state.paintingDetails)}</p>
+              {!user ? null : user._id !== creator ? (
+                <Link to={`/chat/${creator}/${user._id}`}>
+                  <img
+                    src="https://img.icons8.com/plasticine/100/000000/chat.png"
+                    alt=""
+                  />
+                </Link>
+              ) : null}
+            </div>
+
+            <div className="creation-date">
+              <p>Created {this.timeSince(Date.parse(created_at)) + " ago."}</p>
+            </div>
           </div>
         )}
       </div>

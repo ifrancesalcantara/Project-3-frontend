@@ -6,6 +6,9 @@
   top: 0vh
 }
 
+.navbar h1 {
+margin-bottom: 0;}
+
 .navbar ul {
   width: 100vw;
   height: 100%;

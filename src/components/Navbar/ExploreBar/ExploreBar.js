@@ -7,27 +7,22 @@ export default class ExploreBar extends Component {
     this.state = {};
   }
 
-  // componentDidMount=()=>{
-  //   document.querySelector("#search-magnifying-glass").addEventListener("click", this.getFilteredPaintings)
-  // }
-
   getFilteredPaintings = () => {
     const searchbar = document.querySelector(".explore-searchbar");
     this.props.getFilteredPaintings(`?title=${searchbar.value}`);
   };
 
   getSortedPaintings = () => {
-    console.log("YESSSS")
-    const e = document.querySelector(".explore-select");
+    const e = document.querySelector(".select");
     const value = e.options[e.selectedIndex].value;
     let queryStr;
     if (value === "Most liked") {
       queryStr = "?sort=most-liked";
     } else if (value === "Most seen") {
       queryStr = "?sort=most-seen";
-    } else if (value === "Date (first: new)") {
+    } else if (value === "Newest") {
       queryStr = "?sort=newest";
-    } else if (value === "Date (first: old)") {
+    } else if (value === "Oldest") {
       queryStr = "?sort=oldest";
     }
     this.props.history.push(queryStr);
@@ -42,14 +37,14 @@ export default class ExploreBar extends Component {
           <select
             name=""
             id=""
-            className="explore-select"
+            className="select"
             onClick={this.getSortedPaintings}
           >
+            <option selected>Oldest</option>
+            <option>Newest</option>
             <option>Most liked</option>
             <option>Most seen</option>
-            <option>Trending</option>
-            <option>Date (first: new)</option>
-            <option>Date (first: old)</option>
+            {/* <option>Trending</option> */}
           </select>
         </div>
         <div>

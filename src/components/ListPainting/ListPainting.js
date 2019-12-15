@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import userService from "./../../lib/services/user-services";
 import shortid from "shortid";
 import "./ListPainting.css";
+import LoadingGif from "./../LoadingGif";
+import paintingService from "./../../lib/services/painting-service";
+import Image from "./../Image"
 
 export default class PaintingList extends Component {
   constructor(props) {
@@ -10,6 +13,15 @@ export default class PaintingList extends Component {
     this.state = {
       paintings: props.paintings
     };
+  }
+
+  componentDidMount=async()=>{
+    const navbarTitle = document.querySelector("#navbar-title")
+    if(navbarTitle){
+      document.querySelector("#navbar-title").addEventListener("click", async()=>{
+        this.setState({paintings: await paintingService.getHomePaintings()})
+      })
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,18 +50,15 @@ export default class PaintingList extends Component {
     }
   };
 
-  addSeen(id){
-    userService.addSeen(id)
+  addSeen(id) {
+    userService.addSeen(id);
   }
 
   render() {
     let starImage;
-    if (this.props.user) {
-      console.log(this.props.user._id);
-    }
     return (
       <div className="painting-list-div">
-        {this.state.paintings.map((painting, i) => {
+        {!this.state.paintings.length? <LoadingGif/>:this.state.paintings.map((painting, i) => {
           return (
             <div key={shortid.generate()} className="painting-list-item">
               {!this.props.user ? null : painting.usersWhoLiked.indexOf(
@@ -70,18 +79,20 @@ export default class PaintingList extends Component {
                 />
               )}
 
-              <Link onClick={()=>this.addSeen(painting._id)} to={`/painting/${painting._id}`}>
-                <img src={painting.image} alt="" className="" />
+              <Link
+                onClick={() => this.addSeen(painting._id)}
+                to={`/painting/${painting._id}`}
+              >
+                <Image src={painting.image } view="home" className="home-list-img"/>
               </Link>
 
               <div className="img-info">
-                <Link onClick={()=>this.addSeen(painting._id)} to={`/painting/${painting._id}`}>
+                <Link
+                  onClick={() => this.addSeen(painting._id)}
+                  to={`/painting/${painting._id}`}
+                >
                   <p className="list-title">{painting.title}</p>
                 </Link>
-                {/* <Link to={`/chat/${painting.creator}`}>
-                          <img src={this.state.userProfilePics[painting.creatorUsername]} alt=""/> 
-                          <p>{painting.creatorUsername}</p>
-                      </Link> */}
               </div>
             </div>
           );

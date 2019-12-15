@@ -1,3 +1,4 @@
+@charset "UTF-8";
 [type="file"] {
   height: 0;
   overflow: hidden;
@@ -8,12 +9,12 @@
   background: #f15d22;
   border: none;
   border-radius: 5px;
-  color: #fff;
+  color: black;
   cursor: pointer;
   display: inline-block;
-  font-family: "Poppins", sans-serif;
   font-size: inherit;
-  font-weight: 600;
+  -webkit-box-shadow: 0 0 10px 0 grey;
+          box-shadow: 0 0 10px 0 grey;
   margin-bottom: .2rem;
   outline: none;
   padding: 1rem 50px;
@@ -29,7 +30,7 @@
 }
 
 [type="file"] + label.btn-3 {
-  background-color: #6de5ee;
+  background-color: #e1e100;
   border-radius: 0;
   overflow: hidden;
 }
@@ -43,8 +44,8 @@
 }
 
 [type="file"] + label.btn-3::before {
-  color: #fff;
-  content: "\f382";
+  color: black;
+  content: "⬆️";
   font-family: "Font Awesome 5 Pro";
   font-size: 130%;
   height: 100%;
@@ -59,7 +60,7 @@
 
 [type="file"] + label.btn-3:hover,
 [type="file"] + label.btn-3 :active {
-  background-color: #ae144f;
+  background-color: #ffff7b;
 }
 
 [type="file"] + label.btn-3:hover span,
@@ -73,18 +74,6 @@
   top: 0;
 }
 
-.signup {
-  height: 100vh;
-}
-
-#signup-back-arrow,
-#signup-next-arrow {
-  width: 8vh;
-  height: 8vh;
-  border: none;
-  background-color: transparent;
-}
-
 .signup-backgound {
   height: 100vh;
   width: 100vw;
@@ -94,24 +83,35 @@
   background-image: url("https://benmarshall.me/wp-content/uploads/2018/08/background.gif");
 }
 
+#auth-back {
+  position: absolute;
+  background-color: none;
+  top: 3vh;
+  left: 3vh;
+}
+
 .signup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .signup h1 {
   margin: 6vh 0 0 0;
 }
 
-.signup img {
+#signup-next-arrow, #signup-back-arrow {
+  height: 7vh;
+}
+
+.signup-profile-img {
   width: 20vh;
   height: 20vh;
   border: 0.7vh solid black;
@@ -130,11 +130,11 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .signup-input {
@@ -149,7 +149,8 @@
 }
 
 .signup-btn {
-  background-color: yellow;
+  padding: 1vh 2vh;
+  margin-bottom: 4vh
 }
 
 .signup-file-input + label {

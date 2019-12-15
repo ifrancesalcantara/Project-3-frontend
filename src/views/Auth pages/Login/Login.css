@@ -8,6 +8,7 @@
 
 .login h1 {
     font-size: 4em;
+    margin: 5vh 0
 }
 
 .login form {
@@ -17,9 +18,15 @@
     align-items: center;
 }
 
-.login input {
+.login input:not(:nth-of-type(3)) {
     margin: 2vh;
     width: 70vw;
     height: 7vh;
     border: 1px solid #e6e6e6;
+}
+
+#login-btn{
+    width: 40vw;
+    height: 6vh;
+    margin: 6vh 0 10vh
 }

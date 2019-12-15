@@ -53,8 +53,10 @@ export default class AddPaintingForm extends Component {
           </label>
           <span>or</span>
           <input
+          onChange={this.props.handleChange}
             id="signup-img-link"
             className="signup-input"
+            name="image"
             placeholder="Link an image (Sketchfab OK)"
           ></input>
 
