@@ -1,3 +1,110 @@
 .chat {
-    max-height: 80vh;
+  max-height: 80vh;
+  overflow-y: hidden;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 1em;
+}
+
+.my-chat-comment-wrapper {
+  display: flex;
+  justify-content: safe flex-end;
+}
+
+.other-chat-comment-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.other-user-chat-comment {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: auto;
+  background-color: lightyellow;
+  border: 8px solid #666;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+}
+
+.other-user-chat-comment:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  left: -20px;
+  top: 0px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: lightyellow transparent transparent transparent;
+}
+
+.other-user-chat-comment:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  left: -40px;
+  top: -8px;
+  bottom: auto;
+  border: 32px solid;
+  border-color: #666 transparent transparent transparent;
+}
+
+.my-chat-comment {
+  /* max-width: 50vw;
+    padding: 2vh 4vw 2vh 1.5vw;
+    margin: 1vh  */
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: auto;
+  background-color: lightyellow;
+  border: 8px solid #666;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+}
+.my-chat-comment:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -20px;
+  top: 0px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: lightyellow transparent transparent transparent;
+}
+
+.my-chat-comment:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -40px;
+  top: -8px;
+  bottom: auto;
+  border: 32px solid;
+  border-color: #666 transparent transparent transparent;
+}
+
+.talktext {
+  padding: .5em;
+  text-align: left;
+  line-height: 1.5em;
+}
+.talktext p {
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  padding: 1em;
+  -webkit-margin-after: 0em;
 }

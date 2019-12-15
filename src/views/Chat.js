@@ -5,7 +5,7 @@ import chatService from "../lib/services/chat-service";
 
 import Navbar from "../components/Navbar/Navbar";
 import ChatMain from "../components/chat/ChatMain/ChatMain";
-import ChatForm from "../components/chat/ChatForm";
+import ChatForm from "../components/chat/ChatForm/ChatForm";
 
 class Chat extends Component {
   constructor(props) {
@@ -30,16 +30,16 @@ class Chat extends Component {
   };
 
   render() {
-    console.log("PROPS: ", this.props);
+    const {user} = this.props
     return (
       <div>
         <Navbar {...this.props}/>
-        <ChatMain chat={this.state.chatData}></ChatMain>
+        <ChatMain chat={this.state.chatData} user={user}></ChatMain>
 
-        {this.props.user ? (
+        {user ? (
           <ChatForm
             sendComment={this.sendComment}
-            user={this.props.user}
+            user={user}
           ></ChatForm>
         ) : null}
       </div>

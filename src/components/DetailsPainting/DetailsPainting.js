@@ -89,48 +89,16 @@ class PaintingDetails extends Component {
       timesSeen,
       usersWhoLiked,
       tags,
-      updated_at,
+      created_at,
       game
     } = this.state.paintingDetails;
     const paintingId = this.state.paintingDetails._id;
-    console.log("timesSeen", timesSeen);
-    if (usersWhoLiked && user) {
-      console.log(
-        "LIKED BY: ",
-        usersWhoLiked,
-        " THEREFORE: ",
-        usersWhoLiked.includes(user._id)
-      );
-    }
+
     return (
       <div className="details-div">
         {!this.state.paintingDetails ? null : isLoggedIn ? (
           <div>
             <img className="edit-main-img" src={image} alt="" />
-            {/* <ReactImageMagnify //!!!
-              enlargedImagePosition="over"
-              {...{
-                smallImage: {
-                  alt: "Wristwatch by Ted Baker London",
-                  isFluidWidth: true,
-                  src: image,
-                  width: "90px",
-                  height: "auto"
-                },
-                largeImage: {
-                  src: image,
-                  width: 500,
-                  height: 500
-                }
-              }}
-            />
-            <a
-              href="large.jpg"
-              className="MagicZoom"
-              data-options="zoomWidth:400px; zoomHeight:400px"
-            >
-              <img src="small.jpg" alt="" />
-            </a> */}
             <div>
               <div className="details-view-info">
                 <div>
@@ -153,7 +121,9 @@ class PaintingDetails extends Component {
                       alt={paintingId} //!!! CUSTOM ID OR OTHER WAY TO PASS IT. Data-NOT WORKING
                     />
                     <span id="likes-qty">{usersWhoLiked.length}</span>
+                   
                   </div>
+                  
                 ) : (
                   <div>
                     <img
@@ -165,17 +135,30 @@ class PaintingDetails extends Component {
                     <span id="likes-qty">{usersWhoLiked.length}</span>
                   </div>
                 )}
+                    <span className="details-game">
+                <Link to={`/?game=${game}`}>{game}</Link>
+              </span>
               </div>
             </div>
-            <p className="details-title">{title}</p>
-            <p>{description}</p>
-            {!user ? null : user._id !== creator ? (
-              <Link to={`/chat/${creator}/${user._id}`}>
-                START A CHAT with {creator}
-              </Link>
-            ) : null}
-            <p>By: <Link to={`/profile/${creator}`}>{creatorUsername}</Link></p>
-            <div>
+            {!user ? null : user._id === creator ? (
+              <div className="details-title-wrapper">
+                <p className="details-title">{title}</p>
+                <span>
+                  <Link to={`/painting/edit/${this.state.paintingDetails._id}`}>
+                    <img
+                      src="https://img.icons8.com/dusk/512/000000/edit.png"
+                      alt=""
+                    />
+                  </Link>
+                </span>
+              </div>
+            ) : (
+              <div className="details-title-wrapper">
+                <p className="details-title">{title}</p>
+              </div>
+            )}
+            {!description ? null : <p className="details-description">{description}</p>}
+            <div className="details-tags-wrapper">
               {!tags
                 ? null
                 : tags.map(tag => (
@@ -184,18 +167,24 @@ class PaintingDetails extends Component {
                     </Link>
                   ))}
             </div>
-            <Link to={`/?game=${game}`}>{game}</Link>
-            {!user ? null : user._id === creator ? (
-              <span>
-                <Link to={`/painting/edit/${this.state.paintingDetails._id}`}>
-                  Edit
-                </Link>
-              </span>
-            ) : null}
+            <div className="detail-creator-info-div">
+              <p>
+                By: <Link to={`/profile/${creator}`}>{creatorUsername}</Link>
+              </p>
 
-            <p>
-              Last updated: {this.timeSince(Date.parse(updated_at)) + " ago."}
-            </p>
+              {!user ? null : user._id !== creator ? (
+                <Link to={`/chat/${creator}/${user._id}`}>
+                  <img
+                    src="https://img.icons8.com/plasticine/100/000000/chat.png"
+                    alt=""
+                  />
+                </Link>
+              ) : null}
+            </div>
+
+            <div className="creation-date">
+              <p>Created {this.timeSince(Date.parse(created_at)) + " ago."}</p>
+            </div>
           </div>
         ) : (
           <div>
@@ -203,11 +192,7 @@ class PaintingDetails extends Component {
             <div>
               {!tags
                 ? null
-                : tags.map(tag => (
-                    <span key={shortid.generate()}>
-                      {tag}
-                    </span>
-                  ))}
+                : tags.map(tag => <span key={shortid.generate()}>{tag}</span>)}
             </div>
             <p className="title">{title}</p>
             <p>{description}</p>

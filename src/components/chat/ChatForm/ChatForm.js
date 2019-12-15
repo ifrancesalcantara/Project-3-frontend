@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ChatForm.css"
 
 export default class ChatMain extends Component {
   constructor(props) {
@@ -17,7 +18,6 @@ export default class ChatMain extends Component {
     const { name, value } = e.target;
     const newCommenCopy = { ...this.state.newComment };
     newCommenCopy[name] = value;
-    console.log(newCommenCopy);
     this.setState({ newComment: newCommenCopy });
   };
 
@@ -31,14 +31,15 @@ export default class ChatMain extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.preventDefaultAndSendComment(e)}>
+      <form onSubmit={e => this.preventDefaultAndSendComment(e)}
+        className="chatform">
         <input
           type="text"
           name="commentText"
           onChange={this.handleChange}
           value={this.state.newComment.commentText}
         />
-        <input type="submit" value="Send" />
+        <input type="submit" value="Send" className="yellowbutton chat-send-btn"/>
       </form>
     );
   }

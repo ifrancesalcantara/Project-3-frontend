@@ -3,18 +3,45 @@ import shortid from "shortid";
 import "./ChatMain.css";
 
 export default class ChatMain extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
+    const { user } = this.props;
     return (
       <div className="chat">
-        {this.props.chat
-          ? this.props.chat.a.comments.map(comment => {
+        {!this.props.chat
+          ? null
+          : !user
+          ? null
+          : this.props.chat.a.comments.map(comment => {
               return (
                 <div key={shortid.generate()}>
-                  <p>{comment.commentText}</p>
+                      
+                  {comment.creatorId === user._id ? (
+                    <div
+                      className="my-chat-comment-wrapper"
+                    >
+                      <div className="talktext">
+                        <p className="my-chat-comment">{comment.commentText}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      key={shortid.generate()}
+                      className="other-chat-comment-wrapper"
+                    >
+                      <div className="talktext">
+                        <p className="other-user-chat-comment">
+                          {comment.commentText}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
-            })
-          : null}
+            })}
       </div>
     );
   }

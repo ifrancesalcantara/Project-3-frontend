@@ -18,7 +18,7 @@ export default class Tag extends Component {
 
   render() {
     return (
-      <div style={{ display: "inline" }}>
+      <div className="one-tag-wrapper">
         {this.props.view === "add-form" ? (
           <span
             onMouseOut={this.changeClassName}

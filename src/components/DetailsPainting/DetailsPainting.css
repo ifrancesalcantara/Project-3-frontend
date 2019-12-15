@@ -10,14 +10,15 @@
 }
 
 .edit-main-img {
-  height: 44vh;
+  width: 44vh;
   margin: 6vh 0 2vh 0;
 }
 
 .details-view-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    width: 80vw;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .details-view-info div {
@@ -26,33 +27,95 @@
 }
 
 .details-view-info div:first-of-type {
-  margin-right: 10vw;
 }
 .details-view-info div img {
   height: 3vh;
   margin-right: 2vw;
-  margin-bottom: 3px 
+  margin-bottom: 3px;
 }
 
-.details-div p:nth-of-type(1) {
-font-size: 2em;
+.details-title-wrapper{
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px
+}
+.details-title-wrapper span{
+margin-left: 2vw;
+}
+.details-title-wrapper span img{
+  height: 3vh
+  }
+
+.details-div .details-title {
+  margin-bottom: 0px;
+  font-size: 2em;
 }
 
-.details-div p:nth-of-type(2) {
+
+.details-description {
+  position: relative;
+  text-align: left;
+margin-bottom: 4.5vh;
+  min-width: 70vw;
   max-width: 50vw;
-  overflow-wrap: break-word;
   text-align: center;
-}
-
-.details-div p:nth-of-type(2) {
-position: relative;
-text-align: left;
-
-min-width: 70vw
 }
 
 .details-div p:nth-of-type(3) {
   max-width: 50vw;
   overflow-wrap: break-word;
   text-align: center;
+}
+
+.detail-creator-info-div {
+  width: 100vw;
+  padding: 3vh 14vw 1vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.detail-creator-info-div p {
+  margin-bottom: 0;
+}
+
+.detail-creator-info-div img {
+  height: 5vh;
+}
+
+.details-tags-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 0 3vw
+}
+.details-tags-wrapper a, .details-tags-wrapper a:hover, .details-tags-wrapper a:active, .details-tags-wrapper a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.details-game {
+  background-color: greenyellow;
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin: 0px 9px;
+  font-size: 0.8em;
+}
+
+.details-game:hover {
+  background-color: rgb(125, 124, 209);
+}
+
+.details-game a, .details-game a:active, .details-game a:hover, .details-game a:visited {
+  text-decoration: none;
+  color: black
+}
+
+.details-div .creation-date {
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 14vw;
 }

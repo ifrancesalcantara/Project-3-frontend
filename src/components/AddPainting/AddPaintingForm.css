@@ -30,13 +30,37 @@
   padding: 8px 10px;
   height: 20px;
   border-radius: 5px;
-  background-color: rgb(255, 1, 221);
   margin: 0px 9px;
+  box-shadow: 0 0 2px 0px rgb(180, 180, 180);
+  background-image: -webkit-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: -moz-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: -ms-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: -o-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: linear-gradient(to bottom, #faf68f, #f3ed53);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#fcfac0, endColorstr=#f6f283);
 }
+.add-displayed-tag:active{
+  
+  background-image: -webkit-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: -moz-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: -ms-linear-gradient(top, #fcfac0, #9b9a8f);
+  background-image: -o-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: linear-gradient(to bottom, #fcfac0, #f6f283);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#faf68f, endColorstr=#f3ed53);
+}
+
 .add-tag-delete-img {
   width: 12px !important;
   padding: 2px;
   margin-left: 2px;
 }
-.error-message {
+
+.one-tag-wrapper {
+  height: 44px;
 }
+
+#add-tags-display{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 3vw}
