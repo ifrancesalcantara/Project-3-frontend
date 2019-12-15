@@ -11,17 +11,7 @@
 
 .edit-main-img {
   height: 44vh;
-  margin: 6vh 0 5vh 0;
-}
-
-.details-div p:nth-of-type(2) {
-  max-width: 50vw;
-  overflow-wrap: break-word;
-  text-align: center;
-}
-
-.tag {
-  background-color: yellow;
+  margin: 6vh 0 2vh 0;
 }
 
 .details-view-info {
@@ -42,4 +32,27 @@
   height: 3vh;
   margin-right: 2vw;
   margin-bottom: 3px 
+}
+
+.details-div p:nth-of-type(1) {
+font-size: 2em;
+}
+
+.details-div p:nth-of-type(2) {
+  max-width: 50vw;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.details-div p:nth-of-type(2) {
+position: relative;
+text-align: left;
+
+min-width: 70vw
+}
+
+.details-div p:nth-of-type(3) {
+  max-width: 50vw;
+  overflow-wrap: break-word;
+  text-align: center;
 }

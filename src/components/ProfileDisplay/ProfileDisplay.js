@@ -14,26 +14,38 @@ export default class ProfileDisplay extends Component {
     };
   }
 
-  componentDidMount = async () => {
-    const userData = await userService.getUser(this.props.user);
-    this.setState({ user: userData });
+  componentDidMount = () => {
+    this.refreshProfile();
+    document
+      .querySelector("#navbar-profile-img")
+      .addEventListener("click", () => this.refreshProfile());
+  };
+
+  refreshProfile =async () => {
+    setTimeout(async()=>{
+      const userData = await userService.getUser(this.props.match.params.userId);
+      this.setState({ user: userData });
+    }, 50)
   };
 
   deleteMe = paintingId => {
     paintingService.delete(paintingId);
     setTimeout(async () => {
-      const userData = await userService.getUser(this.props.user);
+      const userData = await userService.getUser(this.props.user._id);
       this.setState({ user: userData });
-    }, 300);
+    }, 50);
   };
 
   render() {
     const { logout } = this.props;
     return (
       <div>
+        <div></div>
         {!this.state.user ? null : (
           <div key={shortid.generate()} className="profile-info">
-            <button onClick={logout}>Logout</button>
+            <button className="redbutton" onClick={logout}>
+              LOGOUT
+            </button>
             <h1>{this.state.user.username}</h1>
 
             {!this.state.user.paintings ? null : !this.state.user
@@ -44,17 +56,18 @@ export default class ProfileDisplay extends Component {
                   {this.state.user.paintings.map(painting => (
                     <div key={shortid.generate()} className="profile-painting">
                       <Link to={`/painting/${painting._id}`}>
-                        <img
-                          src={painting.image}
-                          alt=""
-                        />
+                        <img src={painting.image} alt="" />
                       </Link>
                       <div>
                         <Link to={`/painting/${painting._id}`}>
-                          <p>{painting.title}</p>
+                          <p className="profile-painting-title">
+                            {painting.title}
+                          </p>
                         </Link>
+                        <p>{painting.description}</p>
                         <div>
                           <button
+                            className="redbutton"
                             onClick={() => {
                               this.deleteMe(painting._id);
                             }}
@@ -63,7 +76,7 @@ export default class ProfileDisplay extends Component {
                           </button>
                           <span>
                             <Link to={`/painting/edit/${painting._id}`}>
-                              Edit
+                              <button className="yellowbutton">EDIT</button>
                             </Link>
                           </span>
                         </div>

@@ -23,6 +23,7 @@ function App() {
           <AnonRoute exact path="/login" component={Login}></AnonRoute>
           <AnonRoute exact path="/signup" component={Signup}></AnonRoute>
           <Route exact path="/profile" component={Profile}></Route>
+          <Route exact path="/profile/:userId" component={Profile}></Route>
           <Route
             exact
             path="/painting/edit/:paintingId"

@@ -40,8 +40,8 @@ class Navbar extends React.Component {
             {/* <span className="vertical-hr" /> */}
 
             <li style={{ listStyleType: "none" }}>
-              <Link to="/profile">
-                <img src={user.image} alt="" />
+              <Link to={`/profile/${user._id}`}>
+                <img src={user.image} alt="" id="navbar-profile-img"/>
               </Link>
             </li>
           </ul>

@@ -6,12 +6,16 @@
 }
 
 .exploreBar div:first-of-type {
-    margin-left: 2vw;
+    margin-left: 4vw;
 }
 
 
 .exploreBar div:first-of-type select {
     width: 25vw
+}
+
+.explore-select {
+    margin-left: 1vw
 }
 
 .exploreBar div:nth-of-type(2) {
@@ -20,7 +24,10 @@
 
 .explore-searchbar{
     border: 1px solid #e6e6e6;
-    width: 40vw
+    width: 38vw;
+    height: 6vh;
+    background-color: rgba(211, 211, 211, 0.377);
+    margin-right: 2.5vw;
 }
 
 .exploreBar div:nth-of-type(2) button {

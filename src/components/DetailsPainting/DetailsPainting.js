@@ -174,7 +174,7 @@ class PaintingDetails extends Component {
                 START A CHAT with {creator}
               </Link>
             ) : null}
-            <p>By: {creatorUsername}</p>
+            <p>By: <Link to={`/profile/${creator}`}>{creatorUsername}</Link></p>
             <div>
               {!tags
                 ? null
@@ -204,7 +204,7 @@ class PaintingDetails extends Component {
               {!tags
                 ? null
                 : tags.map(tag => (
-                    <span key={shortid.generate()} className="tag">
+                    <span key={shortid.generate()}>
                       {tag}
                     </span>
                   ))}

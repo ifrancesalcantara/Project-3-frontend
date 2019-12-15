@@ -9,12 +9,13 @@ class Home extends React.Component {
     super(props);
     this.state = {};
   }
+
   render() {
     const { user, logout } = this.props;
     return (
       <div>
-        <Navbar {...this.props}/>
-        {user ? <ProfileDisplay user={user._id} logout={logout} /> : null}
+        <Navbar {...this.props} refresh={this.refresh}/>
+        {user ? <ProfileDisplay user={user._id} logout={logout} {...this.props}/> : null}
       </div>
     );
   }

@@ -1,51 +1,17 @@
 .profile-info > button:first-of-type {
-  border: 1px solid #df0909;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 12px;
-  font-family: arial, helvetica, sans-serif;
-  padding: 10px 10px 10px 10px;
-  text-decoration: none;
-  display: inline-block;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #f62b2b;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#f62b2b),
-    to(#d20202)
-  );
-  background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
-  background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
-  background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
-  background-image: -o-linear-gradient(top, #f62b2b, #d20202);
-  background-image: linear-gradient(to bottom, #f62b2b, #d20202);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
-
   position: absolute;
   left: 2vh;
   top: 12vh;
 }
-.profile-info > button:first-of-type:hover {
-  border: 1px solid #b30808;
-  background-color: #e40a0a;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#e40a0a),
-    to(#9f0202)
-  );
-  background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
-  background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
-  background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
-  background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
-  background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+
+
+.profile-info h1{
+  margin-top: 6vh;
+}
+
+
+.profile-info h2{
+  margin-bottom: 4vh;
 }
 
 .profile-paintings-wrapper {
@@ -71,12 +37,34 @@
   overflow: hidden;
 }
 
-.profile-painting > div:nth-of-type(1) {
+.profile-painting > div:first-of-type {
   text-align: left;
-  padding: 2.5vh 10vw 0 3vw;
+  padding: 1vh 2vw 0 3vw;
+  width: 50vw;
 }
 
 
-.profile-painting > div:nth-of-type(1) p:first-of-type {
-  font-size: 1.3em;
+.profile-painting-title {
+  font-size: 1.4em;
+  margin-left: 4vw;
+  margin-bottom: 0
+}
+
+.profile-painting > div:first-of-type > p:first-of-type {
+  height: 10vh;
+  max-height: 39%;
+  margin-bottom: 0;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  margin-bottom: .5vh;
+}
+
+.profile-painting > div:first-of-type > div button {
+  padding: .4vh .7vh;
+}
+
+.profile-painting > div:first-of-type > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
