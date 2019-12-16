@@ -27,6 +27,12 @@ class Home extends React.Component {
       filteredPaintings = await paintingService.getFilteredPaintings(
         this.props.location.search
       );
+    } else {
+      
+      filteredPaintings = await paintingService.getFilteredPaintings(
+        filter
+      );
+      console.log(filteredPaintings)
     }
     if (filteredPaintings) {
       this.setState({ paintings: filteredPaintings.data });

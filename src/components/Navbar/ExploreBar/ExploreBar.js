@@ -10,6 +10,7 @@ export default class ExploreBar extends Component {
   getFilteredPaintings = () => {
     const searchbar = document.querySelector(".explore-searchbar");
     this.props.getFilteredPaintings(`?title=${searchbar.value}`);
+    console.log(searchbar.value)
   };
 
   getSortedPaintings = () => {
@@ -40,7 +41,7 @@ export default class ExploreBar extends Component {
             className="select"
             onClick={this.getSortedPaintings}
           >
-            <option selected>Oldest</option>
+            <option defaultValue>Oldest</option>
             <option>Newest</option>
             <option>Most liked</option>
             <option>Most seen</option>
@@ -48,7 +49,10 @@ export default class ExploreBar extends Component {
           </select>
         </div>
         <div>
-          <input className="explore-searchbar" type="text" placeholder="Search by title"/>
+          <input 
+          className="explore-searchbar" 
+          onChange={this.getFilteredPaintings}
+          type="text" placeholder="Search by title"/>
           <img
             onMouseOver={()=>this.getFilteredPaintings}
             onMouseOut={this.getFilteredPaintings}

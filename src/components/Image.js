@@ -36,7 +36,7 @@ export default class Image extends Component {
           )
         ) : view === "home" ? (
           src.includes("sketchfab.com") ? (
-            <div class="sketchfab-embed-wrapper"
+            <div className="sketchfab-embed-wrapper"
             style={{ width: "100%", height: "22vh", paddingBottom:"0", marginBottom: "0" }}
             >
               <iframe
