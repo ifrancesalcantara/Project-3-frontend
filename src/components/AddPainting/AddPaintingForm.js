@@ -80,14 +80,14 @@ export default class AddPaintingForm extends Component {
             size="1"
             name="game"
             onChange={this.props.handleSelectChange}
-            className="browser-default  custom-select-lg mb-3"
+            className="browser-default  custom-select-lg mb-3 select"
           >
             <option>Warhammer 40k</option>
             <option>Warhammer Fantasy</option>
             <option>Legends of the Old West</option>
           </select>
 
-          <button>Submit</button>
+          <button className="yellowbutton add-btn">Submit</button>
         </form>
       </div>
     );

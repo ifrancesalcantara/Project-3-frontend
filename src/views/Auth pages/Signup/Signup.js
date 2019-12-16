@@ -5,6 +5,7 @@ import authService from "../../../lib/services/auth-service";
 import "./signup.css";
 
 import defaultProfileImages from "../../../lib/config/defaultProfilePic";
+import LoadingGif from "./../../../components/LoadingGif"
 
 var defaultProfileImagesIndex = Math.floor(
   Math.random() * defaultProfileImages.length
@@ -67,7 +68,7 @@ class Signup extends Component {
   }
 
   render() {
-    const { username, password, image } = this.state;
+    const { username, password } = this.state;
     return (
       <div className="signup">
         <div className="signup-backgound"></div>
@@ -86,7 +87,7 @@ class Signup extends Component {
               alt=""
               onClick={() => this.changeImage("to_previous")}
             />
-            <img className="signup-profile-img"src={this.state.image} alt="" />
+            {!this.state.imageLoaded?<LoadingGif view="signup" className="signup-profile-img loading-profile-img"/>:<img className="signup-profile-img"src={this.state.image} alt="" />}
             <img
               id="signup-next-arrow"
               src="https://img.icons8.com/material/96/000000/forward--v1.png"
@@ -126,9 +127,8 @@ class Signup extends Component {
             id="file"
           />
           <label htmlFor="file" className="btn-3">
-            <span>Upload</span>
+            <span>Upload an image</span>
           </label>
-          <span className="signup-or">or</span>
 
           <br />
           {this.state.imageLoaded ? (

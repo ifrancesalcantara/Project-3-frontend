@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
+import Image from "./../Image"
 import "./EditForm.css";
 
 class PaintingDetails extends Component {
@@ -19,16 +20,10 @@ class PaintingDetails extends Component {
               Error mesage
             </p>
             {!painting.image.includes("sketchfab.com") ? (
-              <img src={painting.image} alt="" />
+              <Image view="edit" src={painting.image}/>
             ) : (
-              <div class="sketchfab-embed-wrapper">
-                <iframe
-                  title="A 3D model"
-                  width="640"
-                  height="480"
-                  src="https://sketchfab.com/models/ea5f9b5e738946e48ef9618c98a51668/embed"
-                ></iframe>
-              </div>
+              
+              <Image view="edit" src={painting.image}/>
             )}
             <form onSubmit={this.props.handleSubmit} className="edit-form">
               <table>
@@ -55,6 +50,7 @@ class PaintingDetails extends Component {
                     </td>
                     <td>
                       <textarea
+                      id="edit-description"
                         className="edit-input"
                         onChange={this.props.handleChange}
                         type="text"
@@ -74,14 +70,14 @@ class PaintingDetails extends Component {
                         onChange={this.props.handleChange}
                         type="text"
                         name="tags"
-                        value={painting.tags}
+                        value={painting.tags.join(" ")}
                         placeholder="tags"
                       />
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <button>Update</button>
+              <button  className="yellowbutton edit-btn">Update</button>
             </form>
           </div>
         )}

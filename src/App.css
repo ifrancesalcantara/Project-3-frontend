@@ -106,3 +106,9 @@ select {
     box-shadow: 4px 4px #ccc;
     margin-left: 2vw
 }
+
+.sketchfab-embed-wrapper{
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+}

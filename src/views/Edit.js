@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
 import EditDiv from "../components/EditPainting/EditForm";
-import PaintingDetails from "../components/DetailsPainting/DetailsPainting";
 import paintingService from "../lib/services/painting-service";
 import { withAuth } from "../lib/AuthProvider";
 
@@ -26,8 +25,14 @@ class Painting extends Component {
   handleChange = (event)=>{
       const { name, value } = event.target
       const newPaintingCopy = {...this.state.newPainting}
-      newPaintingCopy[name]=value
-    this.setState({ newPainting: newPaintingCopy });
+      console.log()
+      if(name!=="tags"){
+        newPaintingCopy[name]=value
+      } else {
+        console.log("HERE: ", value.split(" "))
+        newPaintingCopy[name]=value.split(" ")
+      }
+      this.setState({ newPainting: newPaintingCopy });
     console.log(this.state.newPainting)
   }
 

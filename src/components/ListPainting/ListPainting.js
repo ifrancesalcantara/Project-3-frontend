@@ -55,7 +55,6 @@ export default class PaintingList extends Component {
   }
 
   render() {
-    let starImage;
     return (
       <div className="painting-list-div">
         {!this.state.paintings.length? <LoadingGif/>:this.state.paintings.map((painting, i) => {

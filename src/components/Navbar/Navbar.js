@@ -9,7 +9,7 @@ class Navbar extends React.Component {
   };
 
   render() {
-    const { user, logout, isLoggedIn } = this.props;
+    const { user, isLoggedIn } = this.props;
     return (
       <div className="navbar">
         {isLoggedIn ? (

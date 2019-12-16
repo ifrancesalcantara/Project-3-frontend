@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
-import { directive } from "@babel/types";
 
 function AnonRoute({ component: Component, isLoggedIn, isLoading, ...rest }) {
   if (isLoading) {

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./DetailsPainting.css";
 import paintingService from "../../lib/services/painting-service";
 import userService from "./../../lib/services/user-services";
-import ReactImageMagnify from "react-image-magnify";
 import Tag from "./../AddPainting/Tag";
 import shortid from "shortid";
 import LoadingGif from "../LoadingGif";

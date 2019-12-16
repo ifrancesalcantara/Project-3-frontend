@@ -32,12 +32,25 @@
 }
 
 .edit-input {
-  margin: 3vh 0;
+  /* margin: 3vh 0;
+  height: 5vh; */
+  margin: 2vh 0;
   height: 5vh;
+  color: #494949;
+  width: 50vw;
+  border: 1px solid #e6e6e6;
+}
+
+#edit-description {
+  height: auto
 }
 
 .edit-painting-div img {
-  height: 60vw;
+  width: 88vw;
   margin-bottom: 2vh;
 
+}
+
+.edit-btn{
+  padding: 1vh 2vh
 }

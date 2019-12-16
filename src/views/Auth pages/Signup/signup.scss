@@ -39,7 +39,7 @@
 
     &::before {
       color: black;
-      content: "⬆️";
+      content: "⬆";
       font-family: "Font Awesome 5 Pro";
       font-size: 130%;
       height: 100%;
@@ -96,11 +96,16 @@
 }
 
 .signup h1 {
-  margin: 6vh 0 0 0;
+  margin: 11vh 0 0 0;
 }
 
 #signup-next-arrow, #signup-back-arrow {
   height: 7vh;
+}
+
+.loading-profile-img {
+
+  background-color: white !important;
 }
 
 .signup-profile-img {
@@ -141,7 +146,8 @@
 }
 
 .signup-btn {
-  background-color: yellow;
+  padding: 1.5vh 2vh;
+  margin-bottom: 4vh
 }
 
 .signup-file-input + label {

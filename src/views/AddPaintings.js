@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-
 import Navbar from "../components/Navbar/Navbar";
 import AddPaintingForm from "../components/AddPainting/AddPaintingForm";
 import { withAuth } from "../lib/AuthProvider";
@@ -113,7 +111,6 @@ class PaintingsAdd extends React.Component {
   };
 
   render() {
-    console.log(this.state.newPainting.tags);
     return (
       <div>
         <Navbar {...this.props} />

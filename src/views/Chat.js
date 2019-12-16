@@ -24,7 +24,7 @@ class Chat extends Component {
   sendComment = async newComment => {
     const data = { ...this.props.match.params };
     data["newCommentData"] = newComment;
-    const updatedChat = await chatService.postComment(data);
+    await chatService.postComment(data);
     const updatedChat2 = await chatService.getChatData(this.props.match.params);
     this.setState({ chatData: updatedChat2 });
   };
