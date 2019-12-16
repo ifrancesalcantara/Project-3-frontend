@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const baseURL= process.env.REACT_APP_API_URL
+
 class Auth {
   constructor() {
     this.chat = axios.create({
-      baseURL: "http://localhost:5000",
+      baseURL: baseURL,
       withCredentials: true //<-- Goes with CORS credentials
     });
   }

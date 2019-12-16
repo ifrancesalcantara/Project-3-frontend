@@ -1,9 +1,11 @@
 import axios from "axios";
+const baseURL= process.env.REACT_APP_API_URL
+
 
 class Users {
   constructor() {
     this.users = axios.create({
-      baseURL: "http://localhost:5000/users",
+      baseURL: baseURL+"/users",
       withCredentials: true //<-- Goes with CORS credentials
     });
   }
