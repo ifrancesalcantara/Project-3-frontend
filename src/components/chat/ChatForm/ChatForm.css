@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+.secondChatForm {
+    position: absolute;
+    height: 17vh;
+    width: 100vw;
+    bottom: 10vh;
+}
+
 .chatform input:first-of-type {
   height: 100%;
   width: 80%;
@@ -19,4 +26,12 @@
 
 .chat-send-btn {
     font-size: 1.2em;
+}
+
+.chat-clip {
+    position: absolute;
+    bottom: 3.3vh;
+    right: 21vw;
+    background: white;
+    padding: 0 6vw 0 2vw;
 }

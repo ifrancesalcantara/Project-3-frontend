@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LoadingGif from "./LoadingGif";
+import Magnifier from "react-magnifier";
 
 export default class Image extends Component {
   constructor(props) {
@@ -18,21 +19,21 @@ export default class Image extends Component {
           <LoadingGif />
         ) : view === "display" ? (
           src.includes("sketchfab.com") ? (
-            <div class="sketchfab-embed-wrapper">
+            <div className="sketchfab-embed-wrapper">
               <iframe
                 style={{ width: "200vw", margin: "0 0 2vh" }}
                 title="A 3D model"
                 width="640"
                 height="480"
                 src={src}
-                frameborder="0"
+                frameBorder="0"
                 allow="autoplay; fullscreen; vr"
                 mozallowfullscreen="true"
                 webkitallowfullscreen="true"
               ></iframe>
             </div>
           ) : (
-            <img className={className} src={src} alt="" />
+            <Magnifier src={src} mgTouchOffsetY="100" mgTouchOffsetX="0" className={className} height="50vh" width="90vw"/>
           )
         ) : view === "home" ? (
           src.includes("sketchfab.com") ? (
@@ -45,7 +46,7 @@ export default class Image extends Component {
                 width="640"
                 height="480"
                 src={src}
-                frameborder="0"
+                frameBorder="0"
                 allow="autoplay; fullscreen; vr"
                 mozallowfullscreen="true"
                 webkitallowfullscreen="true"
@@ -65,7 +66,7 @@ export default class Image extends Component {
                 width="640"
                 height="480"
                 src={src}
-                frameborder="0"
+                frameBorder="0"
                 allow="autoplay; fullscreen; vr"
                 mozallowfullscreen="true"
                 webkitallowfullscreen="true"
@@ -85,7 +86,7 @@ export default class Image extends Component {
                 width="640"
                 height="480"
                 src={src}
-                frameborder="0"
+                frameBorder="0"
                 allow="autoplay; fullscreen; vr"
                 mozallowfullscreen="true"
                 webkitallowfullscreen="true"

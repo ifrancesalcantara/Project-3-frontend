@@ -26,6 +26,12 @@ class Users {
       return res.data;
     });
   }
+  getUserChatRooms(id) {
+    return this.users.get(`/chatrooms/${id}`).then(res => {
+      console.log(res.data)
+      return res.data;
+    });
+  }
 }
 
 const axiosRequestFunctions = new Users();

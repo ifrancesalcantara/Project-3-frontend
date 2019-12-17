@@ -10,7 +10,6 @@ export default class ExploreBar extends Component {
   getFilteredPaintings = () => {
     const searchbar = document.querySelector(".explore-searchbar");
     this.props.getFilteredPaintings(`?title=${searchbar.value}`);
-    console.log(searchbar.value)
   };
 
   getSortedPaintings = () => {

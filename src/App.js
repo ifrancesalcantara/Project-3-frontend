@@ -7,6 +7,7 @@ import Login from "./views/Auth pages/Login/Login";
 import Signup from "./views/Auth pages/Signup/Signup";
 import Profile from "../src/views/Profile";
 import Painting from "./views/Painting";
+import Chats from "./views/Chats";
 import PaintingsAdd from "./views/AddPaintings";
 import Edit from "./views/Edit";
 import Chat from "./views/Chat";
@@ -23,6 +24,7 @@ function App() {
           <AnonRoute exact path="/login" component={Login}></AnonRoute>
           <AnonRoute exact path="/signup" component={Signup}></AnonRoute>
           <Route exact path="/profile" component={Profile}></Route>
+          <Route exact path="/chats/:userId" component={Chats}></Route>
           <Route exact path="/profile/:userId" component={Profile}></Route>
           <Route
             exact

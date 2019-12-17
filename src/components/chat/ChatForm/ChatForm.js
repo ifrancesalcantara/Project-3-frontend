@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ChatForm.css"
+// import GoogleMap from "../../GoogleMapReact"
 
 export default class ChatMain extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class ChatMain extends Component {
       }
     };
   }
+
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -29,6 +31,14 @@ export default class ChatMain extends Component {
     this.setState({ newComment: newCommenCopy });
   };
 
+  showSecondChatForm = ()=>{
+    console.log("HI")
+  }
+
+  sendMap=()=>{
+    console.log("map sent")
+  }
+
   render() {
     return (
       <form onSubmit={e => this.preventDefaultAndSendComment(e)}
@@ -39,6 +49,14 @@ export default class ChatMain extends Component {
           onChange={this.handleChange}
           value={this.state.newComment.commentText}
         />
+        {/* <div className="secondChatForm ">
+          <div onClick={this.sendMap}>A</div>
+          <GoogleMap></GoogleMap>
+          <div>B</div>
+          <div>C</div>
+        </div> */}
+        {/* <img onClick={this.showSecondChatForm}
+         src="https://img.icons8.com/metro/26/000000/attach.png" className="chat-clip" alt=""/> */}
         <input type="submit" value="Send" className="yellowbutton chat-send-btn"/>
       </form>
     );
