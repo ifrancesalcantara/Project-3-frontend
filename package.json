@@ -23,6 +23,7 @@
     "query-string": "^6.9.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-geolocated": "^3.0.1",
     "react-image-magnify": "^2.7.4",
     "react-magnifier": "^3.0.4",
     "react-native": "^0.61.5",
