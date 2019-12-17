@@ -9,12 +9,12 @@ class Navbar extends React.Component {
   };
 
   render() {
-    const { user, isLoggedIn } = this.props;
+    const { user, isLoggedIn, view } = this.props;
     return (
       <div className="navbar">
         {isLoggedIn ? (
           <ul>
-            {this.props.view === "home" ? (
+            {view === "home" ? (
               <li></li>
             ) : (
               <li>
@@ -25,29 +25,29 @@ class Navbar extends React.Component {
                 />
               </li>
             )}
-            {this.props.view === "home" ? (
+            {view === "home" ? (
               <li style={{ listStyleType: "none" }}>
-                <Link to="/">
-                  <h1 onClick={this.props.getHomePaintings}>Maquetepinto</h1>
+                <Link to="/" className="navbar-link">
+                  <h1 onClick={this.props.getHomePaintings}>Paintapop</h1>
                 </Link>
               </li>
             ) : (
               <li style={{ listStyleType: "none" }}>
-                <Link to="/">Maquetepinto</Link>
+                <Link to="/">Paintapop</Link>
               </li>
             )}
 
             {/* <span className="vertical-hr" /> */}
 
             <li style={{ listStyleType: "none" }}>
-              <Link to={`/profile/${user._id}`}>
+              <Link to={`/profile/${user._id}`} className="navbar-link">
                 <img src={user.image} alt="" id="navbar-profile-img"/>
               </Link>
             </li>
           </ul>
         ) : (
           <ul>
-            {this.props.view === "home" ? (
+            {view === "home" ? (
               <li></li>
             ) : (
               <li>
@@ -60,13 +60,13 @@ class Navbar extends React.Component {
             )}
 
             <li style={{ listStyleType: "none" }}>
-              <Link to="/" id="navbar-title">Maquetepinto</Link>
+              <Link to="/" id="navbar-title" className="navbar-link"><h3>Paintapop</h3></Link>
             </li>
             <li style={{ listStyleType: "none" }}>
-              <Link to="/login">Log In</Link>
+              <Link to="/login" className="navbar-link">Log In</Link>
             </li>
             <li style={{ listStyleType: "none" }}>
-              <Link to="/signup">Sign up</Link>
+              <Link to="/signup" className="navbar-link">Sign up</Link>
             </li>
           </ul>
         )}

@@ -12,7 +12,7 @@ class Painting extends Component {
   render() {
     return (
       <div>
-        <Navbar  {...this.props}/>
+        <Navbar  view="details" {...this.props}/>
         <PaintingDetails {...this.props} paintingId={this.props.match.params.paintingId} />
       </div>
     );

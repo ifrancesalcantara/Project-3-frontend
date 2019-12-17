@@ -19,11 +19,9 @@ class Auth {
 
   postComment(data) {
     const { userId, creatorId, newCommentData } = data;
-    console.log("conna send as body. ", newCommentData);
     return this.chat
       .post(`/chat/comment/${creatorId}/${userId}`, newCommentData)
       .then(data => {
-        console.log("this is the data that i get from server", data);
         return data;
       });
   }

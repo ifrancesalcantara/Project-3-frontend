@@ -3,7 +3,7 @@ import queryString from "query-string";
 import "./Home.css";
 
 import Navbar from "../../components/Navbar/Navbar";
-import ExploreBar from "../../components/Navbar/ExploreBar/ExploreBar";
+import ExploreBar from "../../components/ExploreBar/ExploreBar";
 import PaintingList from "../../components/ListPainting/ListPainting";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
@@ -13,7 +13,9 @@ import userService from "./../../lib/services/user-services";
 class Home extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      paintings: null
+    };
   }
 
   getHomePaintings = async () => {
@@ -23,7 +25,12 @@ class Home extends React.Component {
 
   getFilteredPaintings = async filter => {
     let filteredPaintings;
-    if (this.props.location.search) {
+    if(filter){
+      filteredPaintings = await paintingService.getFilteredPaintings(
+        filter
+      );
+    }
+    else if (this.props.location.search) {
       filteredPaintings = await paintingService.getFilteredPaintings(
         this.props.location.search
       );
@@ -34,20 +41,22 @@ class Home extends React.Component {
   };
 
   componentDidMount = () => {
-    const filter = queryString.parse(this.props.location.search);
-    // console.log(Object.keys(filter).length);
-    if (Object.keys(filter).length === 0) this.getHomePaintings();
-    else this.getFilteredPaintings(filter);
+    const queryObj = this.props.location.search;
+    if (Object.keys(queryObj).length === 0) this.getHomePaintings();
+    else this.getFilteredPaintings(queryObj.sort);
   };
 
   handleLike =(string)=>{
     userService.handleLike(string)
   }
 
+
+
   render() {
     const { user, isLoggedIn } = this.props;
     return (
       <div>
+
         <Navbar view="home" getHomePaintings={this.getHomePaintings} />
         <ExploreBar
           {...this.props}
@@ -61,12 +70,18 @@ class Home extends React.Component {
         )}
 
         {isLoggedIn ? (
+          <div>
+            
+          <Link to={`/chats/${user._id}`} className="chats-link">
+          <img src="https://img.icons8.com/flat_round/64/000000/speech-bubble.png" alt=""/>
+          </Link>
           <Link to="/paintings/add" className="add-link">
             <img
               src="https://img.icons8.com/material/96/000000/add.png"
               alt=""
             />
           </Link>
+          </div>
         ) : null}
       </div>
     );

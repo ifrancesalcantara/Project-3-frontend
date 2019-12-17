@@ -112,3 +112,7 @@ select {
   overflow: hidden;
   display: flex;
 }
+
+.viewer .watermark a {
+  display: none !important;
+}

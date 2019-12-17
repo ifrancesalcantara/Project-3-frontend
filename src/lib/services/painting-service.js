@@ -38,6 +38,8 @@ class Auth {
   }
 
   getFilteredPaintings(filterStr) {
+    console.log(filterStr.sort)
+    
     return this.paintings.get(`/${filterStr}`);
   }
 

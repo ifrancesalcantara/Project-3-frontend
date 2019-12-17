@@ -6,3 +6,12 @@
     opacity: .9;
     width: 10vh;
 }
+
+.chats-link img {
+    position: fixed;
+    z-index: 3;
+    bottom: 1%;
+    left: 2%;
+    opacity: .9;
+    width: 9vh;
+}

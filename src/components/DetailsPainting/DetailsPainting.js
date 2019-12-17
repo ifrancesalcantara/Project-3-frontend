@@ -26,6 +26,7 @@ class PaintingDetails extends Component {
     }, 50);
   };
 
+  //!!! TAKE OUT (ALSO CHATS VIEW)
   timeSince = date => {
     var seconds = Math.floor((new Date() - date) / 1000);
 
