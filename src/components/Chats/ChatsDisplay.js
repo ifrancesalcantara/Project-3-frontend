@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import userService from "./../../lib/services/user-services";
 
+import LoadingGif from "./../LoadingGif"
+
 import "./ChatsDisplay.css";
 
 export default class ChatsDisplay extends Component {
@@ -95,9 +97,9 @@ export default class ChatsDisplay extends Component {
       <div>
         <h1 style={{ margin: "4vh 0" }}>Your chats</h1>
         {!chats
-          ? null
+          ? <LoadingGif/>
           : !chats.length
-          ? null
+          ? <h2>You have no active chats...</h2>
           : chats.map(chat => {
               return (
                 <span key={shortid.generate()}>
