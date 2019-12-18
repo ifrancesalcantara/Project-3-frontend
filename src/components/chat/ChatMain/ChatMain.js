@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import shortid from "shortid";
+import { geolocated } from "react-geolocated";
 import "./ChatMain.css";
 
-export default class ChatMain extends Component {
+class ChatMain extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+  componentDidMount(){
+
+    console.log(this.props.isGeolocationAvailable) 
   }
   render() {
     const { user } = this.props;
@@ -46,3 +51,10 @@ export default class ChatMain extends Component {
     );
   }
 }
+
+export default geolocated({
+  positionOptions: {
+      enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(ChatMain);

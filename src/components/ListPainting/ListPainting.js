@@ -65,7 +65,7 @@ export default class PaintingList extends Component {
       <div className="painting-list-div">
         {!this.state.paintings ? (
           <LoadingGif />
-        ) : !this.state.paintings.length ? <h1>No paintings</h1> : (
+        ) : !this.state.paintings.length ? <h2 className="search-err">No matching paintings</h2> : (
           this.state.paintings.map((painting, i) => {
             return (
               <div key={shortid.generate()} className="painting-list-item">

@@ -33,7 +33,7 @@ class Navbar extends React.Component {
               </li>
             ) : (
               <li style={{ listStyleType: "none" }}>
-                <Link to="/">Paintapop</Link>
+                <Link to="/" className="navbar-link">Paintapop</Link>
               </li>
             )}
 

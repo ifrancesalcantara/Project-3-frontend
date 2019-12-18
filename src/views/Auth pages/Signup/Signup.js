@@ -17,7 +17,9 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password, image } = this.state;
-    this.props.signup({ username, password, image });
+    if(image.match(/\.(jpg|png)$/) != null){
+      this.props.signup({ username, password, image });
+    }
   };
 
   handleChange = event => {
@@ -71,6 +73,8 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
       <div className="signup">
+
+      <div className="auth-background"><div></div></div>
         <div className="signup-backgound"></div>
         <img
         id="auth-back"

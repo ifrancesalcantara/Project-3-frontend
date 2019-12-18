@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
-import EditDiv from "../components/EditPainting/EditForm";
 import paintingService from "../lib/services/painting-service";
 import { withAuth } from "../lib/AuthProvider";
 import ChatsDisplay from "../components/Chats/ChatsDisplay"

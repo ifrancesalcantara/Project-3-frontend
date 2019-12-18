@@ -14,7 +14,11 @@ class Auth {
     const { username, password, image } = user;
     return this.auth
       .post("/auth/signup", { username, password, image })
-      .then(({ data }) => data);
+      .then(({ data }) => {
+        return data})
+        .catch(err=>{
+          console.log(err)
+          return err})
   }
 
   login(user) {

@@ -75,7 +75,7 @@
   background-image: url("https://benmarshall.me/wp-content/uploads/2018/08/background.gif");
 }
 
-#auth-back{
+#signup-back{
   position: absolute;
   background-color: none;
   top: 3vh;
@@ -113,7 +113,7 @@
   height: 20vh;
   border: 0.7vh solid black;
   border-radius: 50%;
-  margin: 4vh 0;
+  margin: 3vh 0;
   background-color: black;
 }
 
@@ -139,6 +139,7 @@
   width: 70vw;
   height: 7vh;
   border: 1px solid #e6e6e6;
+  background-color: rgb(238, 238, 238);
 }
 
 ::-webkit-input-placeholder {
@@ -147,7 +148,7 @@
 
 .signup-btn {
   padding: 1.5vh 2vh;
-  margin-bottom: 4vh
+  margin-bottom: 3vh
 }
 
 .signup-file-input + label {
