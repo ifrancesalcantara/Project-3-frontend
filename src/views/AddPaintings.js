@@ -22,7 +22,7 @@ class PaintingsAdd extends React.Component {
     e.preventDefault();
     //!!!
     if (this.state.newPainting.title.split("").length < 17) {
-      if (this.state.newPainting.image.split("").length){
+      // if (this.state.newPainting.image.split("").length){
         const newPainting = await paintingService.postPainting({
           title: this.state.newPainting.title,
           description: this.state.newPainting.description,
@@ -35,11 +35,11 @@ class PaintingsAdd extends React.Component {
         if (newPainting) {
           this.props.history.push(`/painting/${newPainting._id}`);
         }
-      } else {
-        const errorMessage = document.querySelector("#error-message");
-        errorMessage.innerHTML = "Image format is not accepted";
-        errorMessage.classList.remove("hidden");
-      }
+      // } else {
+      //   const errorMessage = document.querySelector("#error-message");
+      //   errorMessage.innerHTML = "Image format is not accepted";
+      //   errorMessage.classList.remove("hidden");
+      // }
     } else {
       const errorMessage = document.querySelector("#error-message");
       errorMessage.innerHTML = "Title must not be longer than 16 characters";
@@ -50,16 +50,16 @@ class PaintingsAdd extends React.Component {
   handleChange = e => {
     const { name, value } = e.target;
     console.log(name)
-    if(name!=="image"||value.match(/\.(jpg|png)$/) != null){
+    // if(name!=="image"||value.match(/\.(jpg|png)$/) != null){
       console.log("passing")
       const newPaintingCopy = { ...this.state.newPainting };
       newPaintingCopy[name] = value;
       this.setState({ newPainting: newPaintingCopy });
-    } else {
-      const errorMessage = document.querySelector("#error-message");
-      errorMessage.innerHTML = "Image format is not accepted";
-      errorMessage.classList.remove("hidden");
-    }
+    // } else {
+    //   const errorMessage = document.querySelector("#error-message");
+    //   errorMessage.innerHTML = "Image format is not accepted";
+    //   errorMessage.classList.remove("hidden");
+    // }
   };
 
   handleSelectChange = e => {
