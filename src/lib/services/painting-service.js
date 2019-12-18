@@ -9,15 +9,12 @@ class Auth {
   }
 
   imageUpload(file) {
-    return this.paintings.post("/image", file).then(({ data }) => {
-      return data;
-    });
+    return this.paintings.post("/image", file).then(({ data }) => data);
   }
 
   getDetails(id) {
-    return this.paintings.get(`/${id}`).then(({ data }) => {
-      return data;
-    });
+    return this.paintings.get(`/${id}`).then(({ data }) => data)
+    .catch(err=>err.message)
   }
 
   getHomePaintings() {
@@ -37,8 +34,6 @@ class Auth {
   }
 
   getFilteredPaintings(filterStr) {
-    console.log(filterStr.sort)
-    
     return this.paintings.get(`/${filterStr}`);
   }
 

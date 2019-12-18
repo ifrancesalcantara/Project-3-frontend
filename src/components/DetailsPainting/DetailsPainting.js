@@ -7,7 +7,7 @@ import userService from "./../../lib/services/user-services";
 import Tag from "./../AddPainting/Tag";
 import shortid from "shortid";
 import LoadingGif from "../LoadingGif";
-import Image from "./../Image"
+import Image from "./../Image";
 
 class PaintingDetails extends Component {
   constructor(props) {
@@ -22,11 +22,12 @@ class PaintingDetails extends Component {
   componentDidMount = async () => {
     setTimeout(async () => {
       const imgData = await paintingService.getDetails(this.state.paintingId);
+      console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<", imgData);
       this.setState({ paintingDetails: imgData });
     }, 50);
   };
 
-  //!!! TAKE OUT (ALSO CHATS VIEW)
+  //!!! TAKE OUT (ALSO CHATS)
   timeSince = date => {
     var seconds = Math.floor((new Date() - date) / 1000);
 
@@ -98,13 +99,24 @@ class PaintingDetails extends Component {
 
     return (
       <div className="details-div">
-        {!this.state.paintingDetails ? null : isLoggedIn ? (
+        {!this.state.paintingDetails ? null : this.state.paintingDetails ===
+          "Request failed with status code 404" ? (
+            <div className="error-404">
+              <img
+                src="https://cdn.dribbble.com/users/2112205/screenshots/6311420/404.gif"
+                alt=""
+              />
+            <h1>Oh, no!</h1>
+            <h1> We were not able to find that painting</h1>
+            <p>It may have been deleted...</p>
+            </div>
+        ) : isLoggedIn ? (
           <div>
-            <Image src={image} view="display" className="edit-main-img"/>
+            <Image src={image} view="display" className="edit-main-img" />
             <div>
               <div className="details-view-info">
                 <div>
-                                    <img
+                  <img
                     className="edit-seenTimes"
                     src="https://img.icons8.com/material-rounded/96/000000/visible.png"
                     alt=""
@@ -190,8 +202,8 @@ class PaintingDetails extends Component {
           </div>
         ) : (
           <div>
-          <Image src={image} view="display" className="edit-main-img"/>
-            
+            <Image src={image} view="display" className="edit-main-img" />
+
             <div>
               <div className="details-view-info">
                 <div>
@@ -202,7 +214,7 @@ class PaintingDetails extends Component {
                   />
                   <span>{timesSeen}</span>
                 </div>
-                <span style={{ "marginBottom": 0 }}>
+                <span style={{ marginBottom: 0 }}>
                   {usersWhoLiked ? (
                     <div>
                       <Link to="/login">
@@ -246,10 +258,10 @@ class PaintingDetails extends Component {
                 </span>
               </div>
             </div>
-            
-              <div className="details-title-wrapper">
-                <p className="details-title">{title}</p>
-              </div>
+
+            <div className="details-title-wrapper">
+              <p className="details-title">{title}</p>
+            </div>
             {!description ? null : (
               <p className="details-description">{description}</p>
             )}

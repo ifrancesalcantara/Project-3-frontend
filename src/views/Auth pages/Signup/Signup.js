@@ -71,6 +71,8 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
       <div className="signup">
+
+      <div className="auth-background"><div></div></div>
         <div className="signup-backgound"></div>
         <img
         id="auth-back"

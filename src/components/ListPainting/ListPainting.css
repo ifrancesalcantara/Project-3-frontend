@@ -73,3 +73,48 @@ position: relative;
   right: 4%;
   z-index: 3;
 }
+
+
+.search-err{
+  margin: 9vh 0;
+  text-align: center;
+  width: 100vw;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .painting-list-item {
+    width: 30%
+  }
+  .painting-list-item:nth-of-type(3n+2) {
+    margin: 0 4vw 3vh;
+}
+
+.painting-list-item:nth-of-type(3n+1), .painting-list-item:nth-of-type(3n+3) {
+  margin: auto;
+  margin-bottom: 3vh
+}
+
+.painting-list-item:nth-of-type(2n+2){
+}
+}
+
+
+@media only screen and (min-width: 1145px) {
+  .painting-list-item {
+    width: 18%;
+}
+
+.painting-list-item:nth-of-type(3n+2) {
+  margin: 5px 3vw 3vh;
+}
+
+.painting-list-item:nth-of-type(3n+1), .painting-list-item:nth-of-type(3n+3) {
+  margin: auto;
+  margin-bottom: 3vh
+}
+
+.painting-list-item:nth-of-type(2n+2){
+}
+}

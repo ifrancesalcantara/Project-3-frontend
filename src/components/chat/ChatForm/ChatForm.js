@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import "./ChatForm.css"
-// import GoogleMap from "../../GoogleMapReact"
+import React, { Component, PropTypes } from "react";
+import "./ChatForm.css";
+// import { bindActionCreators } from "react-redux"
+// import { connect } from "react-redux";
 
 export default class ChatMain extends Component {
   constructor(props) {
@@ -15,6 +16,33 @@ export default class ChatMain extends Component {
     };
   }
 
+  // static propTypes = {
+  //   comment: this.PropTypes.object.isRequired
+  // }
+
+  componentDidMount() {
+    const allInputs = document.querySelectorAll("input");
+    const textInput = allInputs[0];
+    const qtyInput = allInputs[1];
+    
+    document.querySelector(".show-chatform2").addEventListener("click", () => {
+      document.querySelector(".chatform2").classList.toggle("hidden");
+    });
+    document.querySelector("#showform2").addEventListener("click", () => {
+      document.querySelector(".invoiceform").classList.remove("hidden");
+      document.querySelector(".chatform2").classList.add("hidden");
+    });
+    document
+      .querySelector(".close-incoiceform")
+      .addEventListener("click", () => {
+        document.querySelector(".invoiceform").classList.add("hidden");
+      });
+    document.addEventListener("keydown", e => {
+      if ((e.code === "Enter"||e.code==="NumpadEnter") && (textInput==document.activeElement||qtyInput==document.activeElement)) {
+        console.log(textInput);
+      }
+    });
+  }
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -25,40 +53,58 @@ export default class ChatMain extends Component {
 
   preventDefaultAndSendComment = e => {
     e.preventDefault();
-    this.props.sendComment(this.state.newComment);
-    const newCommenCopy = { ...this.state.newComment };
-    newCommenCopy.commentText = "";
-    this.setState({ newComment: newCommenCopy });
+    if (this.state.newComment.commentText !== "") {
+      this.props.sendComment(this.state.newComment);
+      const newCommenCopy = { ...this.state.newComment };
+      newCommenCopy.commentText = "";
+      this.setState({ newComment: newCommenCopy });
+    }
   };
-
-  showSecondChatForm = ()=>{
-    console.log("HI")
-  }
-
-  sendMap=()=>{
-    console.log("map sent")
-  }
 
   render() {
     return (
-      <form onSubmit={e => this.preventDefaultAndSendComment(e)}
-        className="chatform">
-        <input
-          type="text"
-          name="commentText"
-          onChange={this.handleChange}
-          value={this.state.newComment.commentText}
-        />
-        {/* <div className="secondChatForm ">
-          <div onClick={this.sendMap}>A</div>
-          <GoogleMap></GoogleMap>
-          <div>B</div>
-          <div>C</div>
-        </div> */}
-        {/* <img onClick={this.showSecondChatForm}
-         src="https://img.icons8.com/metro/26/000000/attach.png" className="chat-clip" alt=""/> */}
-        <input type="submit" value="Send" className="yellowbutton chat-send-btn"/>
-      </form>
+      <div>
+        <div className="invoiceform hidden">
+          <div>
+            <p className="close-incoiceform">x</p>
+            <div>
+              <input></input>
+              <p>x</p>
+              <input></input>
+              <p>€ x</p>
+              <input value="1" style={{textAlign:"center"}}></input>
+              <p>=</p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div className="chatform2 hidden">
+          <p id="showform2" >+ INVOICE</p>
+        </div>
+        <form
+          onSubmit={e => this.preventDefaultAndSendComment(e)}
+          className="chatform"
+        >
+          <div className="show-chatform2 hidden">+</div>
+          <input
+            type="text"
+            name="commentText"
+            onChange={this.handleChange}
+            value={this.state.newComment.commentText}
+          />
+          <input
+            type="submit"
+            value="Send"
+            className="yellowbutton chat-send-btn"
+          />
+        </form>
+      </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  comment: state
+});
+
+// export default connect(mapStateToProps)(ChatMain)

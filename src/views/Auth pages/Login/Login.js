@@ -23,6 +23,8 @@ class Login extends Component {
   
       return (
         <div className="login">
+          <div className="login-background"></div>
+          <div className="auth-background"><div></div></div>
         <img
         id="auth-back"
           onClick={() => this.props.history.push("/")}

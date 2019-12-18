@@ -83,7 +83,7 @@
   background-image: url("https://benmarshall.me/wp-content/uploads/2018/08/background.gif");
 }
 
-#auth-back {
+#signup-back {
   position: absolute;
   background-color: none;
   top: 3vh;
@@ -146,6 +146,7 @@
   width: 70vw;
   height: 7vh;
   border: 1px solid #e6e6e6;
+  background-color: #eeeeee;
 }
 
 ::-webkit-input-placeholder {
