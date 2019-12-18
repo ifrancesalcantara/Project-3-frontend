@@ -30,8 +30,8 @@ class Home extends React.Component {
         filter
       );
     }
-    
     else if (this.props.location.search) {
+      console.log(this.props.location.search)
       filteredPaintings = await paintingService.getFilteredPaintings(
         this.props.location.search
       );
