@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin: 1vh 4vw;
+  margin: 1vh 4vw 8vh;
 }
 
 .painting-list-item {

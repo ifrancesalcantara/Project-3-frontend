@@ -21,7 +21,7 @@ export default class AddPaintingForm extends Component {
     return (
       <div className="add-painting-form">
         <h1>Add a new painting</h1>
-        <p id="error-message" className="hidden">
+        <p id="error-message" style={{color: "red"}} className="hidden">
           Error mesage
         </p>
         <form onSubmit={this.props.handleSubmit} className="add-form">

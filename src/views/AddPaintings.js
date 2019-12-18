@@ -22,17 +22,23 @@ class PaintingsAdd extends React.Component {
     e.preventDefault();
     //!!!
     if (this.state.newPainting.title.split("").length < 17) {
-      const newPainting = await paintingService.postPainting({
-        title: this.state.newPainting.title,
-        description: this.state.newPainting.description,
-        image: this.state.newPainting.image,
-        tags: this.state.newPainting.tags,
-        creator: this.props.user._id,
-        creatorUsername: this.props.user.username, //!!!
-        game: this.state.newPainting.game
-      });
-      if (newPainting) {
-        this.props.history.push(`/painting/${newPainting._id}`);
+      if (this.state.newPainting.image.split("").length){
+        const newPainting = await paintingService.postPainting({
+          title: this.state.newPainting.title,
+          description: this.state.newPainting.description,
+          image: this.state.newPainting.image,
+          tags: this.state.newPainting.tags,
+          creator: this.props.user._id,
+          creatorUsername: this.props.user.username, //!!!
+          game: this.state.newPainting.game
+        });
+        if (newPainting) {
+          this.props.history.push(`/painting/${newPainting._id}`);
+        }
+      } else {
+        const errorMessage = document.querySelector("#error-message");
+        errorMessage.innerHTML = "Image format is not accepted";
+        errorMessage.classList.remove("hidden");
       }
     } else {
       const errorMessage = document.querySelector("#error-message");
@@ -43,10 +49,17 @@ class PaintingsAdd extends React.Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    console.log(name, value)
-    const newPaintingCopy = { ...this.state.newPainting };
-    newPaintingCopy[name] = value;
-    this.setState({ newPainting: newPaintingCopy });
+    console.log(name)
+    if(name!=="image"||value.match(/\.(jpg|png)$/) != null){
+      console.log("passing")
+      const newPaintingCopy = { ...this.state.newPainting };
+      newPaintingCopy[name] = value;
+      this.setState({ newPainting: newPaintingCopy });
+    } else {
+      const errorMessage = document.querySelector("#error-message");
+      errorMessage.innerHTML = "Image format is not accepted";
+      errorMessage.classList.remove("hidden");
+    }
   };
 
   handleSelectChange = e => {
