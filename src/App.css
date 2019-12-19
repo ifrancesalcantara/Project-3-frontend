@@ -121,8 +121,7 @@ select {
   height: 90vh;
   width: 100vw;
   background-color: white;
-
-    margin-top: 11vh;
+  padding-top: 11vh;
 }
 
 .error-404 img {
