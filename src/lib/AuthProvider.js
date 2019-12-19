@@ -59,7 +59,7 @@ class AuthProvider extends Component {
   };
 
   logout = () => {
-    authService
+    return authService
       .logout()
       .then(() => {
         this.setState({ isLoggedIn: false, user: null });

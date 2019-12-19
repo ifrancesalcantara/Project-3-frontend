@@ -43,8 +43,8 @@ export default class ProfileDisplay extends Component {
     }, 50);
   };
 
-  LogoutAndGoToSignup =()=> {
-    this.props.logout()
+  LogoutAndGoToSignup = async ()=> {
+    await this.props.logout()
     this.props.history.push("/signup")
   }
 
