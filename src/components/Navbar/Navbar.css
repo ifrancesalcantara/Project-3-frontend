@@ -60,3 +60,8 @@ color: black
   width: 6vh;
   text-align: center;
 }
+
+.navbar-link-home{
+  position: relative;
+  left: -40%
+}
