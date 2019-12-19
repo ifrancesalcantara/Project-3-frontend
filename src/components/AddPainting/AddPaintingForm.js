@@ -47,7 +47,6 @@ export default class AddPaintingForm extends Component {
             name="image"
             onChange={e => this.props.fileChange(e)}
             id="file"
-            required
           />
           <label for="file" className="btn-3">
             <span>Upload</span>
@@ -59,7 +58,7 @@ export default class AddPaintingForm extends Component {
             className="signup-input"
             name="image"
             placeholder="Link an image (Sketchfab OK)"
-          ></input>
+          />
 
           <div id="add-tags-display">
           {!this.props.tags.length
