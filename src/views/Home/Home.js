@@ -1,5 +1,4 @@
 import React from "react";
-import queryString from "query-string";
 import "./Home.css";
 
 import Navbar from "../../components/Navbar/Navbar";

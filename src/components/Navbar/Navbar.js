@@ -15,17 +15,6 @@ class Navbar extends React.Component {
         {isLoggedIn ? (
           <ul>
             {view === "home" ? (
-              <li></li>
-            ) : (
-              <li>
-                <img
-                  onClick={() => this.props.history.goBack()}
-                  src="https://img.icons8.com/metro/52/000000/back.png"
-                  alt=""
-                />
-              </li>
-            )}
-            {view === "home" ? (
               <li style={{ listStyleType: "none" }}>
                 <Link to="/" className="navbar-link">
                   <h1 onClick={this.props.getHomePaintings}>Paintapop</h1>
@@ -34,6 +23,18 @@ class Navbar extends React.Component {
             ) : (
               <li style={{ listStyleType: "none" }}>
                 <Link to="/" className="navbar-link">Paintapop</Link>
+              </li>
+            )}
+
+            {view === "home" ? (
+              <li></li>
+            ) : (
+              <li>
+                <img
+                  onClick={() => this.props.history.goBack()}
+                  src="https://img.icons8.com/metro/52/000000/back.png"
+                  alt=""
+                />
               </li>
             )}
 
