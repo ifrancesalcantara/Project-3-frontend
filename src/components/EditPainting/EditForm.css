@@ -34,7 +34,7 @@
 .edit-input {
   /* margin: 3vh 0;
   height: 5vh; */
-  margin: 2vh 0;
+  margin: 1vh 0;
   height: 5vh;
   color: #494949;
   width: 50vw;
@@ -46,8 +46,8 @@
 }
 
 .edit-painting-div img {
-  height: 88vw;
-  width: 88vw;
+  height: 78vw;
+  width: 78vw;
   margin-bottom: 2vh;
 
 }
