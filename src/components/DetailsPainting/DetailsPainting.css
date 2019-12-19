@@ -72,7 +72,7 @@ margin-left: 2vw;
   align-items: center;
 }
 
-.detail-creator-info-div p {
+.detail-creator-info-div p, .creation-date p {
   margin-bottom: 0;
 }
 
