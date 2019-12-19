@@ -13,7 +13,7 @@ import Edit from "./views/Edit";
 import Chat from "./views/Chat";
 
 import AnonRoute from "./components/a_Route Components/AnonRoute";
-// import PrivateRoute from './components/a_Route Components/PrivateRoute';
+import PrivateRoute from './components/a_Route Components/PrivateRoute';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           <AnonRoute exact path="/signup" component={Signup}></AnonRoute>
           <Route exact path="/profile" component={Profile}></Route>
           <Route exact path="/chats/:userId" component={Chats}></Route>
-          <Route exact path="/profile/:userId" component={Profile}></Route>
+          <PrivateRoute exact path="/profile/:userId" component={Profile}></PrivateRoute>
           <Route
             exact
             path="/painting/edit/:paintingId"

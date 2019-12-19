@@ -4,7 +4,7 @@ import { withAuth } from "../../lib/AuthProvider";
 
 function PrivateRoute({
   component: Component,
-  isLoggedin,
+  isLoggedIn,
   isLoading,
   ...rest
 }) {
@@ -15,7 +15,7 @@ function PrivateRoute({
       <Route
         {...rest}
         render={props =>
-          isLoggedin ? <Component {...props} /> : <Redirect to="/login" />
+          isLoggedIn ? <Component {...props} /> : <Redirect to="/login" />
         }
       />
     );

@@ -50,7 +50,7 @@ class AuthProvider extends Component {
   signup = userData => {
     const { username, password, image } = userData;
 
-    authService
+    return authService
       .signup({ username, password, image })
       .then(user => {
         this.setState({ isLoggedIn: true, user });
@@ -74,7 +74,7 @@ class AuthProvider extends Component {
         this.setState({ isLoggedIn: true, isLoading: false, user: user });
       })
       .catch(err =>
-        this.setState({ isLoggedin: false, user: null, isLoading: false })
+        this.setState({ isLoggedIn: false, user: null, isLoading: false })
       );
   }
 
