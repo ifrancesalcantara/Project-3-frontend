@@ -37,7 +37,6 @@ class Auth {
   }
 
   imageUpload(file) {
-    console.log(file);
     return this.auth.post("/auth/signup/image", file).then(({ data }) => data);
   }
 }

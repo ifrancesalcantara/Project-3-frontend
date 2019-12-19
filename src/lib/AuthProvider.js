@@ -42,7 +42,6 @@ class AuthProvider extends Component {
     authService
       .login({ username, password })
       .then(user => {
-        console.log("useeer: ", user);
         this.setState({ isLoggedIn: true, user });
       })
       .catch(err => console.log(err));

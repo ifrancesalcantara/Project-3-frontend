@@ -21,27 +21,27 @@ export default class ChatMain extends Component {
   // }
 
   componentDidMount() {
-    const allInputs = document.querySelectorAll("input");
-    const textInput = allInputs[0];
-    const qtyInput = allInputs[1];
+    // const allInputs = document.querySelectorAll("input");
+    // const textInput = allInputs[0];
+    // const qtyInput = allInputs[1];
     
-    document.querySelector(".show-chatform2").addEventListener("click", () => {
-      document.querySelector(".chatform2").classList.toggle("hidden");
-    });
-    document.querySelector("#showform2").addEventListener("click", () => {
-      document.querySelector(".invoiceform").classList.remove("hidden");
-      document.querySelector(".chatform2").classList.add("hidden");
-    });
-    document
-      .querySelector(".close-incoiceform")
-      .addEventListener("click", () => {
-        document.querySelector(".invoiceform").classList.add("hidden");
-      });
-    document.addEventListener("keydown", e => {
-      if ((e.code === "Enter"||e.code==="NumpadEnter") && (textInput==document.activeElement||qtyInput==document.activeElement)) {
-        console.log(textInput);
-      }
-    });
+    // document.querySelector(".show-chatform2").addEventListener("click", () => {
+    //   document.querySelector(".chatform2").classList.toggle("hidden");
+    // });
+    // document.querySelector("#showform2").addEventListener("click", () => {
+    //   document.querySelector(".invoiceform").classList.remove("hidden");
+    //   document.querySelector(".chatform2").classList.add("hidden");
+    // });
+    // document
+    //   .querySelector(".close-incoiceform")
+    //   .addEventListener("click", () => {
+    //     document.querySelector(".invoiceform").classList.add("hidden");
+    //   });
+    // document.addEventListener("keydown", e => {
+    //   if ((e.code === "Enter"||e.code==="NumpadEnter") && (textInput==document.activeElement||qtyInput==document.activeElement)) {
+    //     console.log(textInput);
+    //   }
+    // });
   }
 
   handleChange = e => {

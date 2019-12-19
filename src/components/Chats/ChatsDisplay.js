@@ -24,7 +24,6 @@ export default class ChatsDisplay extends Component {
       const otherUserId = this.getOtherUser(chat.roomId, userId);
       if (otherUserId.split("").length === userId.split("").length) {
         const otherUserData = await userService.getUser(otherUserId);
-        console.log(otherUserData);
         this.setState({
           [otherUserData._id]: {
             image: otherUserData.image,
@@ -32,11 +31,6 @@ export default class ChatsDisplay extends Component {
           }
         });
       } else {
-        console.log(
-          this.getOtherUser(chat.roomId, userId),
-          ">>>>",
-          this.props.userId
-        );
         chats.splice(i, 1);
       }
     });

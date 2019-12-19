@@ -30,7 +30,6 @@ class Users {
   }
   getUserChatRooms(id) {
     return this.users.get(`/chatrooms/${id}`).then(res => {
-      console.log(res.data)
       return res.data;
     });
   }

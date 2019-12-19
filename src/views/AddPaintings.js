@@ -49,17 +49,9 @@ class PaintingsAdd extends React.Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    console.log(value, name)
-    // if(name!=="image"||value.match(/\.(jpg|png)$/) != null){
-      const newPaintingCopy = { ...this.state.newPainting };
-      newPaintingCopy[name] = value;
-      this.setState({ newPainting: newPaintingCopy });
-      console.log(this.state)
-    // } else {
-    //   const errorMessage = document.querySelector("#error-message");
-    //   errorMessage.innerHTML = "Image format is not accepted";
-    //   errorMessage.classList.remove("hidden");
-    // }
+    const newPaintingCopy = { ...this.state.newPainting };
+    newPaintingCopy[name] = value;
+    this.setState({ newPainting: newPaintingCopy });
   };
 
   handleSelectChange = e => {

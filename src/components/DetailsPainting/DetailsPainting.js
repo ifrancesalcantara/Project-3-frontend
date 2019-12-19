@@ -22,7 +22,6 @@ class PaintingDetails extends Component {
   componentDidMount = async () => {
     setTimeout(async () => {
       const imgData = await paintingService.getDetails(this.state.paintingId);
-      console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<", imgData);
       this.setState({ paintingDetails: imgData });
     }, 50);
   };

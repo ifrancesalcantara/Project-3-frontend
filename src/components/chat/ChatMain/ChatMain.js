@@ -8,10 +8,7 @@ class ChatMain extends Component {
     super(props);
     this.state = {};
   }
-  componentDidMount(){
 
-    console.log(this.props.isGeolocationAvailable) 
-  }
   render() {
     const { user } = this.props;
     return (

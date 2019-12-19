@@ -25,15 +25,12 @@ class Painting extends Component {
   handleChange = (event)=>{
       const { name, value } = event.target
       const newPaintingCopy = {...this.state.newPainting}
-      console.log()
       if(name!=="tags"){
         newPaintingCopy[name]=value
       } else {
-        console.log("HERE: ", value.split(" "))
         newPaintingCopy[name]=value.split(" ")
       }
       this.setState({ newPainting: newPaintingCopy });
-    console.log(this.state.newPainting)
   }
 
   handleSubmit = async (e)=>{
