@@ -20,7 +20,7 @@ export default class AddPaintingForm extends Component {
   render() {
     return (
       <div className="add-painting-form">
-        <h1>Add a new painting</h1>
+        <h1>Add a new style cards</h1>
         <p id="error-message" style={{color: "red"}} className="hidden">
           Error mesage
         </p>
