@@ -31,7 +31,7 @@
 
 .profile-painting img:first-of-type {
   width: 20vh;
-  max-height: 20vh;
+  height: 20vh;
   overflow: hidden;
 }
 
