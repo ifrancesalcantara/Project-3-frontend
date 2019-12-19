@@ -65,10 +65,10 @@ export default class ProfileDisplay extends Component {
               </span>
             )}
 
-            {!this.state.user.paintings ? <h1>{this.state.user.username} has no style cards</h1> : !this.state.user
+            {!this.state.user.paintings ? <LoadingGif/> : !this.state.user
                 .paintings[0] ? <h1 className="profile-empty-err">You don't have any style cards yet :(</h1> : (
               <div>
-                {!this.props.user ? <h1 id="details-title-not-user">{this.state.user.username}'s paintings</h1> : this.props.user._id !== this.state.user._id ? (
+                {!this.props.user ? <h1 id="details-title-not-user">{this.state.user.username}'s style cards</h1> : this.props.user._id !== this.state.user._id ? (
                   <h1>{this.state.user.username}'s style cards</h1>
                 ) : (
                   <h1>Your style cards</h1>
