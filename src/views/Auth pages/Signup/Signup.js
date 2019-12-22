@@ -4,12 +4,10 @@ import { withAuth } from "../../../lib/AuthProvider";
 import authService from "../../../lib/services/auth-service";
 import "./signup.css";
 
-import defaultProfileImages from "../../../lib/config/defaultProfilePic";
-import LoadingGif from "./../../../components/LoadingGif"
+import { profileImages } from "../../../lib/config/images";
+import LoadingGif from "./../../../components/LoadingGif";
 
-var defaultProfileImagesIndex = Math.floor(
-  Math.random() * defaultProfileImages.length
-);
+var profileImagesIndex = Math.floor(Math.random() * profileImages.length);
 
 class Signup extends Component {
   state = { username: "", password: "", image: null, imageLoaded: true };
@@ -17,7 +15,7 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password, image } = this.state;
-    if(image.match(/\.(jpg|png)$/) != null){
+    if (image.match(/\.(jpg|png)$/) != null) {
       this.props.signup({ username, password, image });
     }
   };
@@ -45,27 +43,27 @@ class Signup extends Component {
   changeImage(instruction) {
     switch (instruction) {
       case "to_previous":
-        defaultProfileImagesIndex--;
-        if (defaultProfileImagesIndex < 1) {
-          defaultProfileImagesIndex = defaultProfileImages.length-1;
+        profileImagesIndex--;
+        if (profileImagesIndex < 1) {
+          profileImagesIndex = profileImages.length - 1;
         }
         break;
       case "to_next":
-        defaultProfileImagesIndex++;
-        if (defaultProfileImagesIndex > defaultProfileImages.length-1) {
-          defaultProfileImagesIndex = 1;
+        profileImagesIndex++;
+        if (profileImagesIndex > profileImages.length - 1) {
+          profileImagesIndex = 1;
         }
         break;
       default:
     }
     this.setState({
-      image: defaultProfileImages[defaultProfileImagesIndex]
+      image: profileImages[profileImagesIndex]
     });
   }
 
   componentDidMount() {
     this.setState({
-      image: defaultProfileImages[defaultProfileImagesIndex]
+      image: profileImages[profileImagesIndex]
     });
   }
 
@@ -73,11 +71,12 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
       <div className="signup">
-
-      <div className="auth-background"><div></div></div>
+        <div className="auth-background">
+          <div></div>
+        </div>
         <div className="signup-backgound"></div>
         <img
-        id="auth-back"
+          id="auth-back"
           onClick={() => this.props.history.push("/")}
           src="https://img.icons8.com/metro/52/000000/back.png"
           alt=""
@@ -91,7 +90,18 @@ class Signup extends Component {
               alt=""
               onClick={() => this.changeImage("to_previous")}
             />
-            {!this.state.imageLoaded?<LoadingGif view="signup" className="signup-profile-img loading-profile-img"/>:<img className="signup-profile-img"src={this.state.image} alt="" />}
+            {!this.state.imageLoaded ? (
+              <LoadingGif
+                view="signup"
+                className="signup-profile-img loading-profile-img"
+              />
+            ) : (
+              <img
+                className="signup-profile-img"
+                src={this.state.image}
+                alt=""
+              />
+            )}
             <img
               id="signup-next-arrow"
               src="https://img.icons8.com/material/96/000000/forward--v1.png"
@@ -136,9 +146,17 @@ class Signup extends Component {
 
           <br />
           {this.state.imageLoaded ? (
-            <input type="submit" value="Signup" className="signup-btn yellowbutton" />
+            <input
+              type="submit"
+              value="Signup"
+              className="signup-btn yellowbutton"
+            />
           ) : (
-            <input type="button" value="Signup" className="signup-btn yellowbutton" />
+            <input
+              type="button"
+              value="Signup"
+              className="signup-btn yellowbutton"
+            />
           )}
         </form>
 

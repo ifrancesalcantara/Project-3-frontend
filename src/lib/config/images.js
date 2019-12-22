@@ -30,4 +30,6 @@ const profileImages = [
     "https://i.pinimg.com/564x/23/a2/d6/23a2d606d07de55c8838f6ec4bd5a14d.jpg"
 ]
 
-module.exports = profileImages
+const img404 = "https://cdn.dribbble.com/users/2112205/screenshots/6311420/404.gif"
+
+export { profileImages, img404 };

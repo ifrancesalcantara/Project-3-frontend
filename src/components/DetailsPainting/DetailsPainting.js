@@ -8,6 +8,7 @@ import Tag from "./../AddPainting/Tag";
 import shortid from "shortid";
 import LoadingGif from "../LoadingGif";
 import Image from "./../Image";
+import EditImg from "./EditImg/EditImg"
 
 class PaintingDetails extends Component {
   constructor(props) {
@@ -98,18 +99,7 @@ class PaintingDetails extends Component {
 
     return (
       <div className="details-div">
-        {!this.state.paintingDetails ? null : this.state.paintingDetails ===
-          "Request failed with status code 404" ? (
-            <div className="error-404">
-              <img
-                src="https://cdn.dribbble.com/users/2112205/screenshots/6311420/404.gif"
-                alt=""
-              />
-            <h1>Oh, no!</h1>
-            <h1> We were not able to find that painting</h1>
-            <p>It may have been deleted...</p>
-            </div>
-        ) : isLoggedIn ? (
+        {!this.state.paintingDetails ? null : isLoggedIn ? (
           <div>
             <Image src={image} view="display" className="edit-main-img" />
             <div>
