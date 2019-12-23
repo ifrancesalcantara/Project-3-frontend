@@ -1,0 +1,82 @@
+.logout-button {
+  position: absolute;
+  left: 2vh;
+  top: 12vh;
+}
+
+.profile-info h1{
+  margin: 8vh 0 2vh;
+}
+
+.profile-info h2{
+  margin-bottom: 4vh;
+}
+
+.profile-paintings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-painting {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  height: 20vh;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 1vh 0;
+  box-shadow: 0px 0px 20px -13px rgba(92, 92, 92, 1);
+}
+
+.profile-painting img:first-of-type {
+  width: 20vh;
+  height: 20vh;
+  overflow: hidden;
+}
+
+.profile-painting > div:first-of-type {
+  text-align: left;
+  padding: 1vh 2vw 0 3vw;
+  width: 50vw;
+}
+
+#details-title-not-user{
+  margin-top: 5vh;
+  margin-bottom: 7vw
+
+}
+
+.my-profile-painting-title {
+  font-size: 1.4em;
+  margin-left: 4vw;
+}
+
+.other-profile-painting-title {
+  font-size: 1.4em;
+  margin-top: 4vw;
+  padding-bottom: 4vw;
+}
+
+.profile-painting > div:first-of-type > p:first-of-type {
+  height: 10vh;
+  max-height: 38%;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  margin-bottom: 1vh;
+}
+
+.profile-painting > div:first-of-type > div button {
+  padding: .4vh .7vh;
+}
+
+.profile-painting > div:first-of-type > div> div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile-empty-err {
+  padding: 16vw;
+}

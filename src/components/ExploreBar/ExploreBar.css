@@ -1,0 +1,39 @@
+.exploreBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px
+}
+
+.exploreBar div:first-of-type {
+    margin-left: 4vw;
+}
+
+
+.exploreBar div:first-of-type select {
+    width: 25vw
+}
+
+.explore-select {
+    margin-left: 1vw
+}
+
+.exploreBar div:nth-of-type(2) {
+    margin-right: 2vw;
+}
+
+.explore-searchbar{
+    border: 1px solid #e6e6e6;
+    width: 38vw;
+    height: 6vh;
+    background-color: rgba(211, 211, 211, 0.377);
+    margin-right: 2.5vw;
+}
+
+.exploreBar div:nth-of-type(2) button {
+    height: 4vh;
+}
+
+.exploreBar div:nth-of-type(2) img{
+    height: 4vh
+}

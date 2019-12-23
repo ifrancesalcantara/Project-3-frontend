@@ -1,0 +1,136 @@
+.App {
+  text-align: center;
+  color: black;
+  position: relative;
+  font-family: "Lilita One", cursive;
+}
+
+/*!!! SCSS .App &...*/
+.App p, .App h1, .App h2, .App h3, .App h4, .App h5, .App h6, .App ul {
+  margin-bottom: 0
+}
+
+
+select {
+  overflow: auto;
+}
+
+.redbutton {
+  border: 1px solid #df0909;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  background-color: #f62b2b;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#f62b2b),
+    to(#d20202)
+  );
+  background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+  background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+  background-image: linear-gradient(to bottom, #f62b2b, #d20202);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+}
+.redbutton:hover {
+  border: 1px solid #b30808;
+  background-color: #e40a0a;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#e40a0a),
+    to(#9f0202)
+  );
+  background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+  background-image: linear-gradient(to bottom, #e40a0a, #9f0202);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+}
+
+.yellowbutton {
+  border: 1px solid #f9f68a;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  background-color: #fcfac0; 
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#fcfac0),
+    to(#f6f283)
+  );
+
+  background-image: -webkit-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: -moz-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: -ms-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: -o-linear-gradient(top, #faf68f, #f3ed53);
+  background-image: linear-gradient(to bottom, #faf68f, #f3ed53);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#fcfac0, endColorstr=#f6f283);
+}
+
+.yellowbutton:hover {
+  border: 1px solid #f7f25f;
+  background-color: #faf68f;
+
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#faf68f),
+    to(#f3ed53)
+  );
+  background-image: -webkit-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: -moz-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: -ms-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: -o-linear-gradient(top, #fcfac0, #f6f283);
+  background-image: linear-gradient(to bottom, #fcfac0, #f6f283);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#faf68f, endColorstr=#f3ed53);
+}
+
+.disabledbutton{
+  border: 1px solid lightgray;
+  background-color: rgb(214, 214, 203);
+
+  background-image: -webkit-linear-gradient(top, rgb(214, 214, 203), lightgray);
+  background-image: -moz-linear-gradient(top, rgb(214, 214, 203), lightgray);
+  background-image: -ms-linear-gradient(top, rgb(214, 214, 203), lightgray);
+  background-image: -o-linear-gradient(top, rgb(214, 214, 203), lightgray);
+  background-image: linear-gradient(to bottom, rgb(214, 214, 203), lightgray);
+
+}
+
+.select{
+    width: 120px;
+    height: 30px;
+    border: 1px solid #999;
+    font-size: 18px;
+    color: #494949;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 4px 4px #ccc;
+    margin-left: 2vw
+}
+
+.sketchfab-embed-wrapper{
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+}
+
+.viewer .watermark a {
+  display: none !important;
+}

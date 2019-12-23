@@ -1,0 +1,136 @@
+.chatform {
+  height: 10vh;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+}
+
+.show-chatform2{
+  position: absolute;
+  right: 21vw;
+  bottom: 0vh;
+  font-size: 2em;
+  padding: 1.5vh;
+  background-color: white;
+}
+
+.chatform2 {
+  height: 12vh;
+  position: fixed;
+  bottom: 10%;
+  right:  0%;
+  width: 30%;
+  transition: height 1s, ease-out .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(219, 219, 219);
+  border-top-left-radius: 25px;
+}
+
+.chatform2 p{
+  background-color: rgb(255, 255, 123);
+  padding: 1vh 2vh; 
+  transition: height 1s, ease-out .5s;
+  border-radius: 20px;
+  margin:0
+}
+
+.invoiceform {
+  height: 12vh;
+  position: fixed;
+  bottom: 9.9%;
+  z-index: 3;
+  right: 0%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(219, 219, 219);
+  border-top-left-radius: 25px;
+}
+
+.invoiceform > div > p {
+  text-align: right;
+  margin: 0;
+  padding: 1vh
+
+}
+
+.invoiceform > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh 3vw 4vh;
+}
+
+.invoiceform > div > div> input {
+  border: 1px solid #d8d8d8;
+  background-color: rgb(238, 238, 238);
+}
+
+.invoiceform > div > div> input:first-of-type {
+  height: 4vh;
+  width: 65%;
+}
+
+.invoiceform > div > div> p:first-of-type {
+  padding: 0 1vw;
+  margin: 0;
+}
+
+.invoiceform > div > div> input:nth-of-type(2), .invoiceform > div > div> input:nth-of-type(3) {
+  width: 9%
+}
+
+.invoiceform > div > div> p:nth-of-type(2) {
+  padding: 0 1vw;
+  margin: 0;
+}
+
+.secondChatForm {
+    position: absolute;
+    height: 17vh;
+    width: 100vw;
+    bottom: 10vh;
+}
+
+.chatform input:first-of-type {
+  height: 100%;
+  width: 80%;
+  padding:0
+}
+
+.chatform input:nth-of-type(2) {
+  height: 100%;
+  width: 20%;
+  padding:0
+}
+
+.chat-send-btn {
+    font-size: 1.2em;
+}
+
+.chat-clip {
+    position: absolute;
+    bottom: 3.3vh;
+    right: 21vw;
+    background: white;
+    padding: 0 6vw 0 2vw;
+}
+
+.hidden {
+  height: 0 !important
+}
+
+.hidden >* {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hidden p {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
