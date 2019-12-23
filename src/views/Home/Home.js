@@ -14,13 +14,28 @@ class Home extends React.Component {
     super();
     this.state = {
       paintings: null,
-      lastSearch: null,
-      displayedPaintings: null
+      lastSearch: "Oldest",
+      sortedPaintings: null,
+      filteredPaintings: null,
+      filter: null
     };
   }
 
-  //!!!DELETE BACKEND / part
+
+  componentDidMount = async () => {
+    const homePaintings = await paintingService.getHomePaintings();
+    this.setState({
+      paintings: homePaintings,
+      sortedPaintings: homePaintings,
+      filteredPaintings: homePaintings
+    });
+    setTimeout(()=>console.log(this.state.paintings), 1000)
+  };
+
+
+  //!!!REFACTOR TO REDUX
   sortPaintings = async sort => {
+
     if (sort === this.state.lastSearch) {
       return;
     }
@@ -44,22 +59,25 @@ class Home extends React.Component {
         return a.timesSeen > b.timesSeen ? -1 : 1;
       });
     }
-    this.setState({ displayedPaintings: sortedPaintings, lastSearch: sort });
+
+    this.setState({ sortedPaintings: sortedPaintings, lastSearch: sort })
+
+    if(!this.state.filter){
+      this.setState({ filteredPaintings: sortedPaintings, });
+    } else {
+      this.filterPaintings(this.state.filter)
+    }
+    
   };
+
+
 
   filterPaintings = filter => {
     this.setState({
-      displayedPaintings: this.state.paintings.filter(painting => {
+      filteredPaintings: this.state.sortedPaintings.filter(painting => {
         return painting.title.toLowerCase().includes(filter.toLowerCase());
-      })
-    });
-  };
-
-  componentDidMount = async () => {
-    const homePaintings = await paintingService.getHomePaintings();
-    this.setState({
-      paintings: homePaintings,
-      displayedPaintings: homePaintings
+      }),
+      filter: filter
     });
   };
 
@@ -81,7 +99,7 @@ class Home extends React.Component {
         {!this.state.paintings ? null : (
           <PaintingList
             user={user}
-            paintings={this.state.displayedPaintings}
+            paintings={this.state.filteredPaintings}
             handleLike={this.handleLike}
           />
         )}
