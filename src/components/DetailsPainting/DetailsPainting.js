@@ -76,7 +76,7 @@ class PaintingDetails extends Component {
               )}
 
               {!description ? null : (
-                <p className="details-description">{description}</p>
+                <p id="details-description">{description}</p>
               )}
 
               <Tags tags={tags} />
@@ -100,7 +100,7 @@ class PaintingDetails extends Component {
             <Title title={title} />
 
             {!description ? null : (
-              <p className="details-description">{description}</p>
+              <p id="details-description">{description}</p>
             )}
 
             <Tags tags={tags} />
@@ -112,7 +112,7 @@ class PaintingDetails extends Component {
             />
 
             <CreationDate created_at={created_at} />
-            
+
           </div>
         )}
       </div>

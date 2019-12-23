@@ -51,20 +51,17 @@
 .my-profile-painting-title {
   font-size: 1.4em;
   margin-left: 4vw;
-  margin-bottom: 0
 }
 
 .other-profile-painting-title {
   font-size: 1.4em;
   margin-top: 4vw;
   padding-bottom: 4vw;
-  margin-bottom: 0
 }
 
 .profile-painting > div:first-of-type > p:first-of-type {
   height: 10vh;
   max-height: 38%;
-  margin-bottom: 0;
   overflow-wrap: break-word;
   overflow-y: hidden;
   margin-bottom: 1vh;

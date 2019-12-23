@@ -12,71 +12,54 @@ class Navbar extends React.Component {
     const { user, isLoggedIn, view } = this.props;
     return (
       <div className="navbar">
-        {isLoggedIn ? (
-          <ul>
-            {view === "home" ? (
-              <li></li>
-            ) : (
-              <li>
-                <img
-                  onClick={() => this.props.history.goBack()}
-                  src="https://img.icons8.com/metro/52/000000/back.png"
-                  alt=""
-                />
-              </li>
-            )}
-
-            {view === "home" ? (
-              <li style={{ listStyleType: "none" }}>
-                <Link to="/" className="navbar-link">
-                  <h1 onClick={this.props.getHomePaintings}>Paintapop</h1>
-                </Link>
-              </li>
-            ) : (
-              <li style={{ listStyleType: "none" }}>
-                <Link to="/" className="navbar-link">Paintapop</Link>
-              </li>
-            )}
-
-            {/* <span className="vertical-hr" /> */}
-
+        <ul>
+          {view === "home" ? (
             <li style={{ listStyleType: "none" }}>
-              <Link to={`/profile/${user._id}`} className="navbar-link">
-                <img src={user.image} alt="" id="navbar-profile-img"/>
+              <Link to="/" className="navbar-link">
+                <h1 onClick={this.props.getHomePaintings}>Paintapop</h1>
               </Link>
             </li>
-          </ul>
-        ) : (
-          <ul>
-            {view === "home" ? (
-              <li></li>
-            ) : (
-              <li>
-                <img
-                  onClick={() => this.props.history.goBack()}
-                  src="https://img.icons8.com/metro/52/000000/back.png"
-                  alt=""
-                />
-              </li>
-            )}
+          ) : (
+            <li>
+              <img
+                onClick={() => this.props.history.goBack()}
+                src="https://img.icons8.com/metro/52/000000/back.png"
+                alt=""
+              />
+            </li>
+          )}
 
-            {view === "home" ? (
-              <li style={{ listStyleType: "none" }}>
-              <Link to="/" id="navbar-title" className="navbar-link-home"><h3>Paintapop</h3></Link>
-            </li>
-            ) : (
+          {view === "home" ? (
+            <li></li>
+          ) : (
             <li style={{ listStyleType: "none" }}>
-              <Link to="/" id="navbar-title" className="navbar-link"><h3>Paintapop</h3></Link>
+              <Link to="/" className="navbar-link">
+                Paintapop
+              </Link>
             </li>
-            )}
+          )}
+
+          {isLoggedIn ? (
             <li style={{ listStyleType: "none" }}>
-              <Link to="/login" className="navbar-link">Log In</Link>
+              <Link to={`/profile/${user._id}`} className="navbar-link">
+                <img src={user.image} alt="" id="navbar-profile-img" />
+              </Link>
             </li>
+          ) : (
             <li style={{ listStyleType: "none" }}>
-              <Link to="/signup" className="navbar-link">Sign up</Link>
+              <Link to="/login" className="navbar-link">
+                Log In
+              </Link>
             </li>
-          </ul>
-        )}
+          )}
+          {!isLoggedIn ? (
+            <li style={{ listStyleType: "none" }}>
+              <Link to="/signup" className="navbar-link">
+                Sign up
+              </Link>
+            </li>
+          ) : null}
+        </ul>
       </div>
     );
   }

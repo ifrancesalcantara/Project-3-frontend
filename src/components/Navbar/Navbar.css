@@ -11,10 +11,6 @@
   text-decoration: none;
 }
 
-.navbar h1, .navbar h3 {
-margin-bottom: 0;
-color: black
-}
 .navbar-title, #navbar-title {
   color: black !important;
 }
@@ -25,7 +21,6 @@ color: black
   display: flex;
   justify-content: space-around;
   height: 10vh;
-  margin-bottom: 0;
 }
 
 .navbar li {

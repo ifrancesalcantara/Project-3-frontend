@@ -124,10 +124,6 @@
   background-color: black;
 }
 
-.signup p:first-of-type {
-  margin-bottom: 0;
-}
-
 .signup form {
   display: -webkit-box;
   display: -ms-flexbox;

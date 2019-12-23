@@ -37,20 +37,21 @@
   align-items: center;
   margin-bottom: 16px
 }
+
 .details-title-wrapper span{
 margin-left: 2vw;
 }
+
 .details-title-wrapper span img{
   height: 3vh
   }
 
 .details-div .details-title {
-  margin-bottom: 0px;
   font-size: 2em;
 }
 
 
-.details-description {
+#details-description {
   position: relative;
   margin-bottom: 4.5vh;
   min-width: 70vw;
@@ -72,9 +73,6 @@ margin-left: 2vw;
   align-items: center;
 }
 
-.detail-creator-info-div p, .creation-date p {
-  margin-bottom: 0;
-}
 
 .detail-creator-info-div img {
   height: 5vh;

@@ -26,11 +26,6 @@
     margin-left: 6vw
 }
 
-/*!!! Get it right on CSS reset*/
-.chats-chat-item p{
-    margin-bottom: 0;
-}
-
 .chats-comment-title {
     margin-top: 5px;
     text-align: left;
