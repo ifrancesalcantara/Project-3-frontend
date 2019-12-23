@@ -11,6 +11,7 @@ import Chats from "./views/Chats";
 import PaintingsAdd from "./views/AddPaintings";
 import Edit from "./views/Edit";
 import Chat from "./views/Chat";
+import Error404 from "./components/Errors/Error404"
 
 import AnonRoute from "./components/a_Route Components/AnonRoute";
 import PrivateRoute from './components/a_Route Components/PrivateRoute';
@@ -38,6 +39,7 @@ function App() {
           ></Route>
           <Route exact path="/paintings/add" component={PaintingsAdd}></Route>
           <Route exact path="/chat/:creatorId/:userId" component={Chat}></Route>
+          <Route component={Error404}></Route>
         </Switch>
       </BrowserRouter>
     </div>

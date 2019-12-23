@@ -28,7 +28,8 @@ class Painting extends Component {
       if(name!=="tags"){
         newPaintingCopy[name]=value
       } else {
-        newPaintingCopy[name]=value.split(" ")
+        const withoutEmptyTags = value.split(", ").filter(tag =>tag!=="")
+        newPaintingCopy[name]=withoutEmptyTags
       }
       this.setState({ newPainting: newPaintingCopy });
   }

@@ -70,7 +70,7 @@ class PaintingDetails extends Component {
                         onChange={this.props.handleChange}
                         type="text"
                         name="tags"
-                        value={painting.tags.join(" ")}
+                        value={painting.tags.join(", ")}
                         placeholder="tags"
                       />
                     </td>

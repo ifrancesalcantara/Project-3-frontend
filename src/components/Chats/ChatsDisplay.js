@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import userService from "./../../lib/services/user-services";
+import { timeSince } from "./../../lib/config/functions"
 
 import LoadingGif from "./../LoadingGif";
 
@@ -36,34 +37,6 @@ export default class ChatsDisplay extends Component {
     });
   };
 
-  //!!! GET IS OUT
-  timeSince = date => {
-    var seconds = Math.floor((new Date() - date) / 1000);
-
-    var interval = Math.floor(seconds / 31536000);
-
-    if (interval > 1) {
-      return interval + " years";
-    }
-    interval = Math.floor(seconds / 2592000);
-    if (interval > 1) {
-      return interval + " months";
-    }
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-      return interval + " days";
-    }
-    interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
-      return interval + " h";
-    }
-    interval = Math.floor(seconds / 60);
-    if (interval > 1) {
-      return interval + " min";
-    }
-    return Math.floor(seconds) + " s";
-  };
-
   //!!! KEEP BOT IDS IT IN CHAT MODEL
   getOtherUser(roomId, userId) {
     let result = roomId.split(userId).join("");
@@ -78,7 +51,7 @@ export default class ChatsDisplay extends Component {
   ///!!! FIX THIS. SHOULD NOT BE NEEDED
   IMessedUp(roomId, userId) {
     var regExp = new RegExp(userId, "g");
-
+    console.log(roomId)
     if ((roomId.match(regExp) || []).length > 1) {
       return false;
     } else {
@@ -100,7 +73,7 @@ export default class ChatsDisplay extends Component {
           chats.map(chat => {
             return (
               <span key={shortid.generate()}>
-                {!this.IMessedUp(chat.roomId, userId) ? null : (
+                {!this.IMessedUp(chat.roomId, userId) ? "a" : (
                   <div>
                     <div className="chats-chat-item">
                       {!this.state[
@@ -152,7 +125,7 @@ export default class ChatsDisplay extends Component {
                             )}
                             {!chat.comments[chat.comments.length - 1] ? null : (
                               <p className="chats-time-ago">
-                                {this.timeSince(
+                                {timeSince(
                                   Date.parse(
                                     chat.comments[chat.comments.length - 1]
                                       .created_at
@@ -170,7 +143,6 @@ export default class ChatsDisplay extends Component {
             );
           })
         )}
-        {/* return <div><p>{chat.comments[chat.comments.length-1].commentText}</p><p>{this.timeSince(Date.parse(chat.comments[chat.comments.length-1].created_at))}</p></div>; */}
       </div>
     );
   }

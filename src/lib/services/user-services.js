@@ -18,7 +18,6 @@ class Users {
   }
   handleLike(string) {
     return this.users.patch(string).then(res => {
-      res.data.password = "*";
       return res.data;
     });
   }

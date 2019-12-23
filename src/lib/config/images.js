@@ -32,4 +32,14 @@ const profileImages = [
 
 const img404 = "https://cdn.dribbble.com/users/2112205/screenshots/6311420/404.gif"
 
-export { profileImages, img404 };
+const seenImg = "https://img.icons8.com/material-rounded/96/000000/visible.png"
+
+const filledStar = "https://img.icons8.com/color/100/000000/filled-star.png"
+
+const emptyStar = "https://img.icons8.com/ios/50/000000/christmas-star.png"
+
+const editIcon = "https://img.icons8.com/dusk/512/000000/edit.png"
+
+const chatIcon = "https://img.icons8.com/plasticine/100/000000/chat.png"
+
+export { profileImages, img404, seenImg, filledStar, emptyStar, editIcon, chatIcon };

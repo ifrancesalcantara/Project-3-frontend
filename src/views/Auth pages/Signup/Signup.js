@@ -15,14 +15,13 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, password, image } = this.state;
-    if (image.match(/\.(jpg|png)$/) != null) {
-      this.props.signup({ username, password, image });
-    }
+    this.props.signup({ username, password, image });
   };
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+    setTimeout(()=>console.log(this.state), 200)
   };
 
   fileChange = event => {
@@ -155,7 +154,7 @@ class Signup extends Component {
             <input
               type="button"
               value="Signup"
-              className="signup-btn yellowbutton"
+              className="signup-btn disabledbutton"
             />
           )}
         </form>

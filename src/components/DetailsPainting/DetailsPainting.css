@@ -1,4 +1,4 @@
-.details-div > * {
+.details-div > *:not(.details-tags-wrapper) {
   display: flex;
   flex-direction: column;
   justify-content: center;

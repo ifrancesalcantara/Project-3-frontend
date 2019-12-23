@@ -1,10 +1,11 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
+import LoadingGif from "./../LoadingGif"
 
 function AnonRoute({ component: Component, isLoggedIn, isLoading, ...rest }) {
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return <LoadingGif/>;
   } else {
     return (
       <Route
