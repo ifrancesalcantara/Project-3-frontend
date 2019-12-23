@@ -59,7 +59,7 @@ class PaintingDetails extends Component {
               <Info
                 loggedIn
                 timesSeen={timesSeen}
-                usersWhoLiked={usersWhoLiked}
+                Liked={usersWhoLiked}
                 user={user}
                 paintingId={paintingId}
                 game={game}

@@ -10,25 +10,17 @@ export default class Info extends Component {
     this.state = {};
   }
   render() {
-    const {
-      timesSeen,
-      usersWhoLiked,
-      user,
-      paintingId,
-      game,
-      loggedIn
-    } = this.props;
+    const { timesSeen, user, paintingId, game, loggedIn } = this.props;
     return (
       <div>
         {loggedIn ? (
           <div className="details-view-info">
             <SeenIcon timesSeen={timesSeen} />
-            {!this.props.user ? null : !usersWhoLiked ? null : (
+            {!this.props.user ? null : (
               <div>
                 <LikeIcon
                   loggedIn
                   includeLikes
-                  usersWhoLiked={usersWhoLiked}
                   userId={user._id}
                   id={paintingId}
                 />
@@ -41,7 +33,7 @@ export default class Info extends Component {
         ) : (
           <div className="details-view-info">
             <SeenIcon timesSeen={timesSeen} />
-            {usersWhoLiked ? <LikeIcon usersWhoLiked={usersWhoLiked} /> : null}
+            <LikeIcon />
             <span className="details-game">
               <Link to={`/?game=${game}`}>{game}</Link>
             </span>

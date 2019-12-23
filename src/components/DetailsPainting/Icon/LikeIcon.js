@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import paintingService from "./../../../lib/services/painting-service"
+
 import { filledStar, emptyStar } from "../../../lib/config/images";
 import { handleLikeAndToggleImageSource } from "../../../lib/config/functions";
 
@@ -8,11 +10,16 @@ export default class Icon extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      usersWhoLiked: this.props.usersWhoLiked,
+      usersWhoLiked: null,
       handleLikeAndToggleImageSourceBinded: handleLikeAndToggleImageSource.bind(
         this
       )
     };
+  }
+
+  componentDidMount=async ()=>{
+    const paintingDetails=await paintingService.getDetails(this.props.id)
+    this.setState({usersWhoLiked: paintingDetails.usersWhoLiked})
   }
 
   render() {

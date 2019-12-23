@@ -22,8 +22,10 @@ class Home extends React.Component {
     this.setState({ paintings: homePaintings });
   };
 
+  //!!!DELETE BACKEND / part
   getFilteredPaintings = async filter => {
     let filteredPaintings;
+    console.log(filter)
     if(filter){
       filteredPaintings = await paintingService.getFilteredPaintings(
         filter

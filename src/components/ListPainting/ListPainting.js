@@ -47,14 +47,12 @@ export default class PaintingList extends Component {
                   <LikeIcon
                     loggedIn
                     liked
-                    usersWhoLiked={painting.usersWhoLiked}
                     userId={this.props.user._id}
                     id={painting._id}
                   />
                 ) : (
                   <LikeIcon
                     loggedIn
-                    usersWhoLiked={painting.usersWhoLiked}
                     userId={this.props.user._id}
                     id={painting._id}
                   />
