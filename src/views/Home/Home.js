@@ -13,47 +13,72 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      paintings: null
+      paintings: null,
+      lastSearch: null,
+      displayedPaintings: null
     };
   }
 
-  getHomePaintings = async () => {
-    const homePaintings = await paintingService.getHomePaintings();
-    this.setState({ paintings: homePaintings });
-  };
-
   //!!!DELETE BACKEND / part
-  getFilteredPaintings = async filter => {
-    let filteredPaintings;
-    console.log(filter)
-    if(filter){
-      filteredPaintings = await paintingService.getFilteredPaintings(
-        filter
-      );
-    }
-    else if (this.props.location.search) {
-      filteredPaintings = await paintingService.getFilteredPaintings(
-        this.props.location.search
-      );
+  sortPaintings = async sort => {
+    if(sort===this.state.lastSearch) { return }
+    let sortedPaintings;
+
+    if(sort ==="Newest") {
+      sortedPaintings = this.state.paintings.sort((a,b)=>{
+        if(a.created_at>b.created_at){
+          return -1
+        } else {
+          return 1
+        }
+      })
+
+    } else if(sort ==="Oldest") {
+      sortedPaintings = this.state.paintings.sort((a,b)=>{
+        if(a.created_at>b.created_at){
+          return 1
+        } else {
+          return -1
+        }
+      })
+
+    } else if(sort ==="Most liked") {
+      sortedPaintings = this.state.paintings.sort((a,b)=>{
+        if(a.usersWhoLiked.length>b.usersWhoLiked.length){
+          return -1
+        } else {
+          return 1
+        }
+      })
+
+    } else if(sort ==="Most seen") {
+      sortedPaintings = this.state.paintings.sort((a,b)=>{
+        if(a.timesSeen>b.timesSeen){
+          return -1
+        } else {
+          return 1
+        }
+      })
     }
 
-    if (filteredPaintings) {
-      this.setState({ paintings: filteredPaintings.data });
-    }
+    this.setState({displayedPaintings: sortedPaintings, lastSearch: sort})
   };
 
-  componentDidMount = () => {
-    const queryObj = this.props.location.search;
-    if (Object.keys(queryObj).length === 0) this.getHomePaintings();
-    else this.getFilteredPaintings(queryObj.sort);
-  };
+  filterPaintings=(filter)=>{
+    this.setState({displayedPaintings: this.state.paintings.filter(painting=>{
+      return painting.title.includes(filter)
+    })})
+  }
+
+  componentDidMount = async () => {
+    const homePaintings = await paintingService.getHomePaintings();
+    this.setState({ paintings: homePaintings, displayedPaintings: homePaintings })
+  }
 
   handleLike =(string)=>{
     userService.handleLike(string)
   }
-
-
-
+  
   render() {
     const { user, isLoggedIn } = this.props;
     return (
@@ -62,12 +87,12 @@ class Home extends React.Component {
         <Navbar view="home" getHomePaintings={this.getHomePaintings} />
         <ExploreBar
           {...this.props}
-          getSortedPaintings={this.getSortedPaintings}
-          getFilteredPaintings={this.getFilteredPaintings}
+          sortPaintings={this.sortPaintings}
+          filterPaintings={this.filterPaintings}
         />
 
         {!this.state.paintings ? null : (
-          <PaintingList user={user} paintings={this.state.paintings} 
+          <PaintingList user={user} paintings={this.state.displayedPaintings} 
           handleLike={this.handleLike}/>
         )}
 
