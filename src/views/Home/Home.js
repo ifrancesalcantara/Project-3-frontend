@@ -65,7 +65,7 @@ class Home extends React.Component {
         />
 
         {!this.state.paintings ? null : (
-          <PaintingList user={user}paintings={this.state.paintings} 
+          <PaintingList user={user} paintings={this.state.paintings} 
           handleLike={this.handleLike}/>
         )}
 

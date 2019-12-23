@@ -23,15 +23,17 @@ export default class Info extends Component {
         {loggedIn ? (
           <div className="details-view-info">
             <SeenIcon timesSeen={timesSeen} />
-            {!this.props
-              .user ? null : !usersWhoLiked ? null :
-              <LikeIcon
-                loggedIn
-                usersWhoLiked={usersWhoLiked}
-                userId={user._id}
-                id={paintingId}
-              />
-            }
+            {!this.props.user ? null : !usersWhoLiked ? null : (
+              <div>
+                <LikeIcon
+                  loggedIn
+                  includeLikes
+                  usersWhoLiked={usersWhoLiked}
+                  userId={user._id}
+                  id={paintingId}
+                />
+              </div>
+            )}
             <span className="details-game">
               <Link to={`/?game=${game}`}>{game}</Link>
             </span>
